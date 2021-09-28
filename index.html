@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" href="css/default.css" />
     <link rel="shortcut icon" href="images/favicon/favicon.ico" />
-    <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
 	
     <script type="text/javascript">
@@ -26,23 +25,27 @@
   <body>
 
 
-    <div id="wrap">
-      <div class="hdGnb">
-        <ul>
-            <li class="hdJoin"><a href="<%=request.getContextPath()%>/member/memberJoin.do">회원가입</a><span class="bonus"></span></li>
-            <li><a href="<%=request.getContextPath()%>/member/memberLogin.do">로그인</a></li>
-            <li><a href="#">장바구니(<span id="user_basket_quantity" class="user_basket_quantity"></span>)</a></li>
-            <li class="off"><a href="#">주문조회</a></li>
-            <li><a href="#">마이페이지</a></li>
-            <li class="off"><a href="#">리뷰보기</a></li>
-            <li><a href="#">고객센터</a></li>
-        </ul>
-      </div>
-      <br>
-      <br>
+  
 
       <header class="header cfixed">
-  
+
+        <div id="wrap">
+          <div class="hdGnb">
+            <ul>
+                <li class="hdJoin"><a href="<%=request.getContextPath()%>/member/memberJoin.do">회원가입</a><span class="bonus"></span></li>
+                <li><a href="<%=request.getContextPath()%>/member/memberLogin.do">로그인</a></li>
+                <li><a href="#">장바구니(<span id="user_basket_quantity" class="user_basket_quantity"></span>)</a></li>
+                <li class="off"><a href="#">주문조회</a></li>
+                <li><a href="#">마이페이지</a></li>
+                <li class="off"><a href="#">리뷰보기</a></li>
+                <li><a href="#">고객센터</a></li>
+            </ul>
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          
           <nav class="navbar">
 
             <div class="navbar_logo"> 
@@ -78,7 +81,7 @@
           <span></span>
           <span></span>
         </span>
-        
+
       </header>
 
       <article class="slider">
