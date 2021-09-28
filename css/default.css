@@ -3,6 +3,16 @@
 /* 모바일용 CSS */
 /* 기본 CSS */
 
+body {
+	margin: 0;
+	font-family: 'Source Sans Pro';
+}
+
+a {	
+	text-decoration: none;
+	color: white;
+}
+
 .hdGnb {
   padding-top: 18px;
   float: right;
@@ -93,52 +103,57 @@
   padding: 18px 5%;
 }
 
-.header .logo {
-  float: left;
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #263343;
+	padding: 8px 12px;
+	
 }
 
-.header .logo a {
-  font-size: 26px;
-  color: #3f51b5;
-  font-weight: normal;
+.navbar_logo {
+	font-size: 24px;
+	color: white;
+	
 }
 
-.header .gnb {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 20;
-  width: 100%;
-  background: #3f51b5;
+.navbar_logo i {
+	color: #d49466;
 }
 
-.header .gnb li {
-  border-bottom: 1px solid #303f9f;
+.navbar_menu {
+	display: flex;
+	list-style: none;
+	padding-left: 0;
 }
 
-.header .gnb li a {
-  display: block;
-  padding: 14px 0 14px 5%;
-  font-size: 14px;
-  color: #fff;
+.navbar_menu li {
+	padding: 8px 12px
 }
 
-.header .menu-toggle-btn {
-  float: right;
-  width: 20px;
-  margin-top: 4px;
-  cursor: pointer;
+.navbar_menu li:hover {
+	background-color: #d49466;
+	border-radius: 4px;
 }
 
-.header .menu-toggle-btn span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: #3f51b5;
+.navbar_icons {
+	list-style: none;
+	color: white;
+	display: flex;
+	padding-left: 0;
 }
 
-.header .menu-toggle-btn span:nth-child(2) {
-  margin: 5px 0;
+.navbar_icons li {
+	padding: 18px 24px;
+}
+
+.navbar_toogleBtn {
+	display: none;
+	position: absolute
+	right: 32px;
+	font-size: 24px;
+	color: #d49466;
 }
 
 /* 슬라이더 영역 CSS */
@@ -378,30 +393,36 @@
     padding: 28px 52px;
   }
 
-  .header .gnb {
-    display: block !important;
-    position: static;
-    float: right;
-    width: auto;
-    margin-top: 6px;
-    background: none;
-  }
-
-  .header .gnb li {
-    float: left;
-    margin-left: 21px;
-    border-bottom: 0;
-  }
-
-  .header .gnb li a {
-    padding: 0;
-    font-size: 16px;
-    color: #3f51b5;
-  }
-
-  .header .menu-toggle-btn {
-    display: none !important;
-  }
+  .navbar {
+		flex-direction: column;
+		align-items: flex-srart;
+	}
+	
+	.navbar_menu {
+		display: none;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
+	
+	.navbar_menu li {
+		width: 100%;
+		text-align: center;
+	}
+	
+	.navbar_icons {
+		display: none;
+		justify-content: center;
+		width: 100%;
+	}
+	
+	.navbar_toogleBtn {
+	display: block;
+	}
+	
+	.navbar_menu.active,
+	.navbar_icons.active {
+		display: flex;
 
   /* 디스플레이 영역 CSS */
   .display-section {
