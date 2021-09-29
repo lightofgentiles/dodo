@@ -2,144 +2,123 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <title>You are a pretty girl</title>
-    <link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" />
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
-	
-    <script type="text/javascript">
-      var msg ="${msg}";
-      if(msg){
-        alert(msg);
-      }
-    </script>
-
-    <link rel="apple-touch-icon-precomposed" href="images/favicon/indigo-touch-icon.png"/>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/indigo.min.js"></script>
-    <script src="./js/main.js" defer> </script>
+    <script src="/js/main.js" defer> </script>
   </head>
   <body>  
 
-      <header class="header cfixed">
-
-        <div id="wrap">
-          <div class="hdGnb">
-            <ul>
-                <li class="hdJoin"><a href="<%=request.getContextPath()%>/member/memberJoin.do">회원가입</a><span class="bonus"></span></li>
-                <li><a href="<%=request.getContextPath()%>/member/memberLogin.do">로그인</a></li>
-                <li><a href="#">장바구니(<span id="user_basket_quantity" class="user_basket_quantity"></span>)</a></li>
-                <li class="off"><a href="#">주문조회</a></li>
-                <li><a href="#">마이페이지</a></li>
-                <li><a href="#">고객센터</a></li>
-            </ul>
+      <header class="header"> 
+        <div class="hdGnb">
+          <div><a href="<%=request.getContextPath()%>/member/memberJoin.do">회원가입</a></div>
+          <div><a href="<%=request.getContextPath()%>/member/memberLogin.do">로그인</a></div>
+          <div><a href="#">주문조회</a></div>
+          <div><a href="#">마이페이지</a></div>
+          <div><a href="#">장바구니</a></div>
+          <div><a href="#">고객센터</a></div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+                  
+        <nav class="navbar">
+          <div class="navbar_logo"> 
+            <i class="fas fa-socks"></i>
+            <a href="<%=request.getContextPath()%>/main/main.do">DoDo Girls</a>
           </div>
-          <br>
-          <br>
-          <br>
-          <br>
           
-          <nav class="navbar">
-
-            <div class="navbar_logo"> 
-              <i class="fas fa-socks"></i>
-              <a href="<%=request.getContextPath()%>/main/main.do">DoDo Girls</a>
-            </div>
-            
-            <ul class="navbar_menu"> 
-              <li><a href="<%=request.getContextPath()%>/main/main.do">HOME</a></li>
-              <li><a href="#">NEW10%</a></li>
-              <li><a href="#">BEST</a></li>
-              <li><a href="#">OUTER</a></li>
-              <li><a href="#">TOP</a></li>
-              <li><a href="#">BLOUSE</a></li>
-              <li><a href="#">SKIRT</a></li>
-              <li><a href="#">PANTS</a></li>
-              <li><a href="#">CONTACT US</a></li>	
-            </ul>
-            
-             <ul class="navbar_icons"> 
-               <i class="fab fa-twitter"></i>
-               <i class="fab fa-facebook"></i>    	
-            </ul>
-            
-            <a href="#" class="navbar_toogleBtn">
-              <i class="fas fa-bars"></i>
-            </a>
-                
-          </nav>         
+          <ul class="navbar_menu"> 
+            <li><a href="<%=request.getContextPath()%>/main/main.do">HOME</a></li>
+            <li><a href="#">NEW10%</a></li>
+            <li><a href="#">BEST</a></li>
+            <li><a href="#">OUTER</a></li>
+            <li><a href="#">TOP</a></li>
+            <li><a href="#">BLOUSE</a></li>
+            <li><a href="#">SKIRT</a></li>
+            <li><a href="#">PANTS</a></li>
+            <li><a href="#">CONTACT US</a></li>	
+          </ul>
+          
+          <ul class="navbar_icons"> 
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-facebook"></i>    	
+          </ul>
+          
+          <a href="#" class="navbar_toogleBtn">
+            <i class="fas fa-bars"></i>
+          </a>
+              
+        </nav>         
    
       </header>
 
       <article class="slider">
         <div id="slideShow">
           <img src="images/p-images/slide01.jpg" alt="">
-          <button id="prev">&lang;</button>
-          <button id="next">&rang;</button>
-          </div>
-        </div> 
-      </article>
-     
-      <h1 class="best"><img src="images/p-images/bestitems.png" alt=""></h1>
-      <div class="table-wrap">
-        <div class="table-box table-box--vertical">
-          <table class="table table--vertical" cellspacing="0" cellpadding="0">
-            <thead>
-            <tr>
-              <th><img src="images/p-images/best1.gif" alt=""></th>
-              <th><img src="images/p-images/best2.gif" alt=""></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>빌리 배색체크 자켓 정장세트</td>
-              <td>코코 수술 트위드자켓</td>
-           </tr>
-            <tr>
-              <td>99,900원</td>
-              <td>99,900원</td>
-            </tr>
-            <tr>
-              <th><img src="images/p-images/best3.gif" alt=""></th>
-              <th><img src="images/p-images/best4.gif" alt=""></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>콤비제인 스판 자켓</td>
-              <td>릴리프 배색 정장세</td>
-            </tr>
-            <tr>
-              <td>59,900원</td>
-              <td>129,000원</td>
-            </tr>
-            <tr>
-              <th><img src="images/p-images/best5.jpg" alt=""></th>
-              <th><img src="images/p-images/best6.gif" alt=""></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>밀러스 더블 정장 자켓</td>
-              <td>골지 배색 후드 집업</td>
-            </tr>
-            <tr>
-              <td>39,900원</td>
-              <td>49,900원</td>
-            </tr>
-            </tbody>
-          </table>
         </div>
-      </div>          
+      </article>
+      
+      <!--Main -->
+      <h1 class="main_text"><img src="images/p-images/bestitems.png" alt=""></h1>
+      <div class="table-wrap">
+          <div class="item1">
+              <img src="images/p-images/best1.gif"/>
+              <p>빌리 배색체크 자켓 정장세트</p>
+              <p>99,900원</p>
+            </div>
+            <div class="item2">
+              <img src="images/p-images/best2.gif"/>
+              <p>코코 수술 트위드자켓</p>
+              <p>99,900원</p>
+            </div>
+            <div class="item3">
+              <img src="images/p-images/best3.gif"/>
+              <p>콤비제인 스판 자켓</p>
+              <p>59,900원</p>
+            </div>
+            <div class="item4">
+              <img src="images/p-images/best4.gif"/>
+              <p>릴리프 배색 정장세</p>
+              <p>129,000원</p>
+            </div>
+            <div class="item5">
+              <img src="images/p-images/best5.jpg"/>
+              <p>밀러스 더블 정장 자켓</p>
+              <p>39,900원</p>
+            </div>
+            <div class="item6">
+              <img src="images/p-images/best6.gif"/>
+              <p>골지 배색 후드 집업</p>
+              <p>49,900원</p>
+          </div>
+       </div>           
 
       <footer class="footer">
-        <iframe
-        <img src="images/p-images/footer.png" alt="">    
-        ></iframe>
-        <p class="copyright">INDIGO</p>
+          <div class="footer_info"> 
+            <i class="fas fa-socks"></i>
+            <div>이용약관 | 개인정보처리방법</div>
+            <div>(주)Fashion Mail</div>
+            <div>대표:홍길동 사업자 등록번호. 000-000-000000 통신판매업신고번호. 제 2020-전주-0000호</div>
+            <div>주소. 전라북도 전주시 ㅇㅇㅇㅇ 123</div>
+          </div>
+          
+          <div class="footer_info_cscenter"> 
+            <div>CS CENTER</div>
+            <div>02 1234 5678</div>
+            <div>WORK TIME</div>
+            <div>10:00-18:00(토/일 공휴일 휴무)</div>
+            <div>12:00-13:00 점심시간</div>
+          </div>
+
+          <div class="footer_info_refund"> 
+            <div>교환/반품</div>
+            <div>자주하는 질문</div>
+            <div>E-MAIL </div>
+            <div>abcdefe@gmail.com</div>
+          </div>         
       </footer>
     </div>
   </body>

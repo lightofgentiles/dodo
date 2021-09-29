@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 https://www.youtube.com/watch?v=xWMKz9NCD0k
+=======
+https://www.youtube.com/watch?v=xWMKz9NCD0k
+>>>>>>> f1bff44fe8b3038d19f9a9dfb970ff080c447829
 https://www.notion.so/277f2906743742ae8f19b6494581058f
