@@ -1,18 +1,8 @@
 @charset "utf-8";
 
 /* 기본 CSS */
-body {
-  margin: 0;
-  font-family: "Source Sans Pro";
-  padding: 1em 1%;
-}
 
 /* 헤더 영역 CSS */
-
-a {
-  text-decoration: none;
-  color: white;
-}
 
 .main_text {
   text-align: center;
@@ -36,62 +26,6 @@ a {
   color: black;
 }
 
-.navbar {
-  display: flex;
-  align-items: center;
-  background-color: #263343;
-  padding: 0.5rem 10rem;
-}
-
-.navbar_logo {
-  justify-content: left;
-}
-
-.navbar_logo a {
-  font-size: 2rem;
-  color: rgb(233, 12, 12);
-}
-
-.navbar_logo i {
-  color: #d49466;
-}
-
-.navbar_menu {
-  display: flex;
-  list-style: none;
-  padding-left: 4rem;
-}
-
-.navbar_menu li {
-  justify-content: space-between;
-  font-size: 1.1rem;
-  padding: 8px 12px;
-}
-
-.navbar_menu li:hover {
-  background-color: #d49466;
-  border-radius: 1rem;
-}
-
-.navbar_icons {
-  list-style: none;
-  color: white;
-  display: flex;
-  padding-left: 0;
-}
-
-.navbar_icons li {
-  padding: 18px 24px;
-}
-
-.navbar_toogleBtn {
-  display: none;
-  position: absolute;
-  right: 32px;
-  font-size: 24px;
-  color: #d46666;
-}
-
 /* 슬라이더 영역 CSS */
 .slider img {
   display: flex;
@@ -101,6 +35,11 @@ a {
 }
 
 /* Main 영역 */
+.main_text {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding: 1em;
+  background-color: pink;
+}
 .table-wrap {
   display: flex;
   justify-content: space-around;
@@ -135,38 +74,6 @@ a {
 
 /* 태블릿용 CSS navbar */
 @media screen and (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-srart;
-  }
-
-  .navbar_menu {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-
-  .navbar_menu li {
-    width: 100%;
-    text-align: center;
-  }
-
-  .navbar_icons {
-    display: none;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .navbar_toogleBtn {
-    display: block;
-  }
-
-  .navbar_menu.active,
-  .navbar_icons.active {
-    display: flex;
-  }
-
   /*vertical*/
   .table_wrap {
     position: relative;

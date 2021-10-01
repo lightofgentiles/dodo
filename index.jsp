@@ -5,22 +5,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <title>You are a pretty girl</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/auto_slide.css" />
+    <link rel="stylesheet" type="text/css" href="css/header.css" />
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
-    <script src="/js/main.js" defer> </script>
+    <script src="/js/header.js" defer> </script>
+    <script src="/js/auto_slide.js" defer> </script>
   </head>
   <body>  
 
-    <%@ include file="/include/header.jsp" %>
-    <article class="slider">
-      <div id="slideShow">
-        <img src="images/p-images/slide01.jpg" alt="">
-      </div>
-    </article>
-   
-      
+<%@ include file="/include/header.jsp" %>
+
+<div class="slideshow-container">
+
+  <div class="mySlides fade">
+    <img src="images/p-images/slide01.jpg" >
+  </div>
+
+  <div class="mySlides fade">
+    <img src="images/p-images/slide02.jpg" >
+  </div>
+
+  <div class="mySlides fade">
+    <img src="images/p-images/slide03.jpg" >
+  </div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>    
+    <br>
+    <br>
+    <br>
       <!--Main -->
-      <h1 class="main_text"><img src="images/p-images/bestitems.png" alt=""></h1>
+      <h1 class="main_text">Best Item</h1>
       <div class="table-wrap">
           <div class="item1">
               <img src="images/p-images/best1.gif"/>
