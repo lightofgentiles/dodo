@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.myapp.persistence.MemberService_Mapper">
+
+<insert id="memberInsert" parameterType="HashMap">
+insert into member(member_id,member_pw,member_name,member_phone,member_email,member_zipcode,member_address1,member_address2,member_birth)
+values(#{member_id},#{member_pw},#{member_name},#{member_hp},#{member_email},#{member_zipcode},#{member_address1},#{member_address2},#{member_birth})
+</insert>
+
+<select id="memberLogin" parameterType="String" resultType="mv">
+select * from member where del_yn='N' and member_id= #{0} and member_pw= #{1} 
+</select>
+
+<select id="memberIdChk" parameterType="String" resultType="Integer">
+select * from member where del_yn='N' and member_id= #{member_id} 
+</select>
+
+</mapper>
