@@ -2,7 +2,9 @@ package com.ezen.myapp.controller;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -128,9 +130,25 @@ public class MemberController {
 			@RequestParam("member_hp") String member_hp,
 			@RequestParam("member_email") String member_email,
 			RedirectAttributes rttr //이 클래스에 주소창에 넣어서 값이 들어가지 않고 hidden으로 한번만 사용한다.
-			) {
+			) {	
+		String birth_month1=null;
+		String birth_day1=null;
+		String member_birth=null;
+		if(birth_month.length()==1 && birth_day.length()==1 ) {
+			birth_month1="0"+birth_month;
+			birth_day1="0"+birth_day;
+			member_birth = birth_year +"-"+ birth_month1 + "-" + birth_day1;		
+		}else if(birth_month.length()==1){
+			birth_month1="0"+birth_month;
+			member_birth = birth_year +"-"+ birth_month1 + "-" + birth_day;
+		}else if(birth_day.length()==1) {
+			birth_day1="0"+birth_day;
+			member_birth = birth_year +"-"+ birth_month + "-" + birth_day1;
+		}else {
+			member_birth = birth_year +"-"+ birth_month + "-" + birth_day;
+		}
+          
 		
-		String member_birth = String birth_year+String birth_month+String birth_day;
 		
 		int result = ms.memberInsert(member_id,member_pw,member_name,member_zipcode,member_address1,member_address2,member_birth,member_hp,member_email);
 		

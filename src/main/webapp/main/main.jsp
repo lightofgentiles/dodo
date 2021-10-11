@@ -29,15 +29,15 @@
 <div class="slideshow-container">
 
   <div class="mySlides fade">
-    <img src="${path}/images/p-images/slide01.jpg" >
+    <img src="${path}/img/p-img/slide01.jpg" >
   </div>
 
   <div class="mySlides fade">
-    <img src="${path}/images/p-images/slide02.jpg" >
+    <img src="${path}/img/p-img/slide02.jpg" >
   </div>
 
   <div class="mySlides fade">
-    <img src="${path}/images/p-images/slide03.jpg" >
+    <img src="${path}/img/p-img/slide03.jpg" >
   </div>
 
 </div>
@@ -55,32 +55,32 @@
       <h1 class="main_text">Best Item</h1>
       <div class="table-wrap">
           <div class="item1">
-              <img src="${path}/images/p-images/best1.gif"/>
+              <img src="${path}/img/p-img/best1.gif"/>
               <p>빌리 배색체크 자켓 정장세트</p>
               <p>99,900원</p>
             </div>
             <div class="item2">
-              <img src="${path}/images/p-images/best2.gif"/>
+              <img src="${path}/img/p-img/best2.gif"/>
               <p>코코 수술 트위드자켓</p>
               <p>99,900원</p>
             </div>
             <div class="item3">
-              <img src="${path}/images/p-images/best3.gif"/>
+              <img src="${path}/img/p-img/best3.gif"/>
               <p>콤비제인 스판 자켓</p>
               <p>59,900원</p>
             </div>
             <div class="item4">
-              <img src="${path}/images/p-images/best4.gif"/>
+              <img src="${path}/img/p-img/best4.gif"/>
               <p>릴리프 배색 정장세</p>
               <p>129,000원</p>
             </div>
             <div class="item5">
-              <img src="${path}/images/p-images/best5.jpg"/>
+              <img src="${path}/img/p-img/best5.jpg"/>
               <p>밀러스 더블 정장 자켓</p>
               <p>39,900원</p>
             </div>
             <div class="item6">
-              <img src="${path}/images/p-images/best6.gif"/>
+              <img src="${path}/img/p-img/best6.gif"/>
               <p>골지 배색 후드 집업</p>
               <p>49,900원</p>
           </div>

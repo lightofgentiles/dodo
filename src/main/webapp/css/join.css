@@ -1,4 +1,5 @@
-/* 레이아웃 틀 */
+@charset "UTF-8";
+
 html {
   height: 100%;
 }
@@ -10,8 +11,8 @@ body {
   font-family: Dotum, "돋움", Helvetica, sans-serif;
 }
 #logo {
-  width: 240px;
-  height: 44px;
+  width: 28rem;
+  height: 4rem;
   cursor: pointer;
 }
 
@@ -33,18 +34,30 @@ body {
 }
 
 .zipcode {
-  position: relative;
-  right: 86px;
-  width: 40%;
-  height: 51px;
-  border: solid 1px #dadada;
+  width: 50%;
+  border: solid 0px #dadada;
+  padding: 10px 14px 10px 14px;
+  box-sizing: border-box;
   background: #fff;
+  position: relative;
+}
+
+.zipcode_btn {
+  height: 40px;
+  float: center;
+  background: linear-gradient(125deg, #81ecec, #e75c9d, #a181ec);
+  background-position: right;
+  background-size: 200%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  
+
 }
 
 
-.zipcode_btns {
-    text-align: right;
-  }
+
 .address1,
 .address2 {
   display: block;
@@ -157,7 +170,7 @@ select {
   height: 29px;
   font-size: 15px;
   background: #fff
-    url(https://static.nid.naver.com/images/join/pc/sel_arr_2x.gif) 100% 50%
+    url(https://static.nid.naver.com/img/join/pc/sel_arr_2x.gif) 100% 50%
     no-repeat;
   background-size: 20px 8px;
   -webkit-appearance: none;
@@ -188,21 +201,6 @@ select {
 
 /* 버튼 */
 
-.btn {
-  width: 40%;
-  height: 40px;
-  background: linear-gradient(125deg, #81ecec, #e75c9d, #a181ec);
-  background-position: right;
-  background-size: 200%;
-  color: white;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  transition: 0.4s;
-  display: inline;
-  le
-}
-
 .btn_area {
   margin: 30px 0 91px;
 }
@@ -218,3 +216,4 @@ select {
   font-weight: 400;
   font-family: Dotum, "돋움", Helvetica, sans-serif;
 }
+

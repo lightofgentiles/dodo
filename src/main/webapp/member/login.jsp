@@ -83,7 +83,7 @@ body {
   margin-bottom: 40px;
   width:80%;
   height:40px;
-  background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
+  background: linear-gradient(125deg,#81ecec,#e75c9d, #a181ec);
   background-position: left;
   background-size: 200%;
   color:white;
