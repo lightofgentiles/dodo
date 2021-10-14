@@ -51,19 +51,19 @@ function check(){
 	<tr>
 		<td>제목</td>
 		<td>
-		<input type="text" name="subject" value="<%=bv.getSubject()%>">
+		<input type="text" name="subject" value="<%=bv.getB_subject()%>">
 		</td>
 	</tr>
 	<tr>
 		<td>내용</td>
 		<td>
-		<textarea name="contents" cols=50  rows=5><%=bv.getContents()%></textarea>
+		<textarea name="contents" cols=50  rows=5><%=bv.getB_contents()%></textarea>
 		</td>
 	</tr>
 	<tr>
 		<td>작성자</td>
 		<td>
-		<input type="text" name="writer" value="<%=bv.getWriter()%>">
+		<input type="text" name="writer" value="<%=bv.getB_member_id()%>">
 		</td>
 	</tr>
 	<tr>

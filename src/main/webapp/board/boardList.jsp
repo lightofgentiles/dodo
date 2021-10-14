@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %> 
 <%@ page import ="com.ezen.myapp.domain.*" %> 
-
 <%ArrayList<BoardVo> alist = (ArrayList<BoardVo>) request.getAttribute("alist"); %>    
- <%PageMaker pm = (PageMaker)request.getAttribute("pm"); %>    
+<%PageMaker pm = (PageMaker)request.getAttribute("pm"); %>    
     
 <!DOCTYPE html>
 <html>
@@ -12,7 +11,7 @@
 <title>Insert title here</title>
 
 <!--  Bootstrap css -->
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.css?ver=1">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 
 <script type="text/javascript">
 	var msg ="${msg}";
@@ -25,7 +24,7 @@
 <body>
 <div class="container">
 	<br>
-	<h1 class="text-center"><a href="#">공지사항</a></h1>
+	<h1 class="text-center"><a href="#">고객문의</a></h1>
 	<br>
 	<br>
 </div>
@@ -80,9 +79,9 @@
 			}
 			
 			%>
-			<a href="<%=request.getContextPath()%>/board/boardContents.do?bidx=<%=bv.getBidx()%>"><%=bv.getSubject() %></a>
+			<a href="<%=request.getContextPath()%>/board/boardContents.do?bidx=<%=bv.getBidx()%>"><%=bv.getB_subject()%></a>
 		</td>
-		<td><%=bv.getWriter() %></td>
+		<td><%=bv.getB_member_id()%></td>
 		<td><%=bv.getWriteday() %></td>
 		<td>
 		<%if(bv.getFilename()!=null) {%>

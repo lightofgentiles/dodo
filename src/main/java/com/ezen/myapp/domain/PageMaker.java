@@ -11,7 +11,7 @@ public class PageMaker {
 	private int totalCount;
 	private int startPage;
 	private int endPage;
-	private int displayPageNum = 10; // �븯�떒�쓽 �럹�씠吏� 媛��닔瑜� �굹���궡以� <-1 2345678910 ->
+	private int displayPageNum = 10; 
 	private boolean prev;
 	private boolean next;
 	private SearchCriteria scri;
@@ -62,8 +62,6 @@ public class PageMaker {
 	}
 	
 	public void calcData() {
-		// total 媛��닔媛� �꽆�뼱 �뼱寃� �릺硫� startpage 媛믨낵 endpage 媛믪쓣 �젙�쓽瑜� �궡由ш퀬 
-		//�씠�쟾踰꾪듉 �떎�쓬�씠 �굹�삱吏� 留먯� �젙�쓽 �븳�떎.
 		
 		endPage =(int)(Math.ceil(scri.getPage()/(double)displayPageNum)*displayPageNum); //�떎 �삱由� 泥섎━瑜� �븳�떎. �떎�쓬 �럹�씠吏��룄 �븯�굹 data留� �엳�뼱�룄 ceil �궗�슜
 		
@@ -77,10 +75,8 @@ public class PageMaker {
 		}
 		
 		prev = startPage == 1 ? false : true;
-		next = endPage*scri.getPerPageNum() >= totalCount ? false : true;
-		
-		System.out.println("PageMaker�쓽 endPage");
-		
+		next = endPage*scri.getPerPageNum() >= totalCount ? false : true;		
+
 	}
 	
 
