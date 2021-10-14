@@ -10,6 +10,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
+<<<<<<< HEAD
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 <title>You are a pretty girl</title>
@@ -22,6 +23,12 @@
 <script src="${path}/js/header.js" defer> </script>
 <script src="${path}/js/jquery.min.js" defer></script>
 <script src="${path}/js/flat.min.js" defer></script>
+=======
+<title>Insert title here</title>
+
+<!--  Bootstrap css -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+>>>>>>> 452954e0f0ef749ce033c1355f1d7131cc49ca79
 
 <script type="text/javascript">
 	var msg ="${msg}";
@@ -32,6 +39,7 @@
 
 </head>
 <body>
+<<<<<<< HEAD
 <%@ include file="/include/header.jsp" %>
 
 <section class="sub_header_section">
@@ -97,6 +105,90 @@
 				<% if(pm.isPrev()==true){ %>
 				<a href="${path}/board/boardList.do?page=<%=pm.getStartPage()-1 %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>"><span class="list_prev_btn">문의사항 이전 버튼</span></a>
 				<%}%>			
+=======
+<div class="container">
+	<br>
+	<h1 class="text-center"><a href="#">고객문의</a></h1>
+	<br>
+	<br>
+</div>
+
+<form name="frm" class="form-inline my-2 my-lg-0" action="<%=request.getContextPath()%>/board/boardList.do" method="post">
+
+<table class="table table-bordered" style="border:1px solid;">
+	<tr>
+		<td>
+			<select name="searchType">
+				<% if(pm.getScri().getSearchType().equals("subject")){ %>
+				<option value="subject" selected>제목</option>
+				<option value="writer">작성자</option>
+				<%}
+				else if (pm.getScri().getSearchType().equals("writer")){ %>
+				<option value="subject">제목</option>
+				<option value="writer" selected>작성자</option>
+				<%} %>
+			</select>
+		</td>
+		
+		<td>
+		<input type="text" class="form-control mr-sm-2" name="keyword" placeholder="Search" size="10">
+		</td>		
+		<td>      
+		<button class="btn btn-outline-success my-2 my-sm-0" name="submit" type="submit">검색</button>   
+		</td>
+	</tr>
+</table>
+</form>
+
+
+<table class="table table-striped" style="border:1px solid;">
+	<tr>
+		<td>게시물번호</td>
+		<td>제목</td>
+		<td>작성자</td>
+		<td>날짜</td>
+		<td>파일</td>
+	</tr>
+	
+	<% for(BoardVo bv : alist) { %>
+	<tr>
+		<td><%=bv.getBidx() %></td>
+		<td>
+			<%
+			for(int i=1;i<=bv.getNlevel();i++){
+				out.print("&nbsp;&nbsp;");
+				if(i == bv.getNlevel()){
+					out.print("ㄴ");
+				}
+			}
+			
+			%>
+			<a href="<%=request.getContextPath()%>/board/boardContents.do?bidx=<%=bv.getBidx()%>"><%=bv.getB_subject()%></a>
+		</td>
+		<td><%=bv.getB_member_id()%></td>
+		<td><%=bv.getWriteday() %></td>
+		<td>
+		<%if(bv.getFilename()!=null) {%>
+		<a href ="<%=request.getContextPath()%>/board/fileDownload.do?filename=<%=bv.getFilename()%>"><img src="../image/file.gif" alt=""></a>
+		<%} %>
+		</td>
+	</tr>
+	<%} %>
+</table>
+
+<a href="<%=request.getContextPath() %>/board/boardWrite.do" class="btn btn-default pull-right">글쓰기</a>
+<table border=1 style="width:500px">
+	<tr>
+		<td>
+		<% if(pm.isPrev()==true){ %>
+		<a href="<%=request.getContextPath()%>/board/boardList.do?page=<%=pm.getStartPage()-1 %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>">이전</a>
+		<%}%>
+		</td>
+			<td>
+				<div class="text-center">
+				<ul class="pagination">
+				<li>
+>>>>>>> 452954e0f0ef749ce033c1355f1d7131cc49ca79
 				<% for(int i =pm.getStartPage();i<=pm.getEndPage();i++){%>
 				<a href="${path}/board/boardList.do?page=<%=i %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>"><%=i %></a>
 				<%}%>
