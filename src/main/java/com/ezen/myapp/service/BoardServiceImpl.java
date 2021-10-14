@@ -24,15 +24,14 @@ public class BoardServiceImpl implements BoardService {
 	
 	
 	@Override
-	public int boardInsert(String subject,String contents, String writer,String pwd, String ip, int midx) {
+	public int boardInsert(String subject, String contents, String b_member_id, String pwd, String ip) {
 		// �����κа� 
 		HashMap<String,Object> hm = new HashMap<String,Object>();
 		hm.put("subject", subject);
 		hm.put("contents", contents);
-		hm.put("writer", writer);
+		hm.put("b_member_id", b_member_id);
 		hm.put("pwd", pwd);
 		hm.put("ip", ip);
-		hm.put("midx", midx);
 		
 		System.out.println("boardInsert"+ hm);
 		

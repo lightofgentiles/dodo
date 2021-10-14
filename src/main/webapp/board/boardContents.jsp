@@ -173,7 +173,7 @@ $.more = function(){
 <table border="1" style="width:500px;">
 <tr>
 <td style="width:100px;">제목</td>
-<td><%=bv.getSubject() %></td>
+<td><%=bv.getB_subject() %></td>
 </tr>
 <tr>
 <td>내용</td>
@@ -181,13 +181,13 @@ $.more = function(){
 <a href="<%=request.getContextPath()%>/board/fileDownload.do?fileName=<%=bv.getFilename() %>"><%=bv.getFilename() %></a>
 
 <img src="<%=request.getContextPath() %>/image/filefolder/<%=bv.getFilename() %>" >
-<%=bv.getContents()%>
+<%=bv.getB_contents() %>
 
 </td>
 </tr>
 <tr>
 <td>작성자</td>
-<td><%=bv.getWriter() %></td>
+<td><%=bv.getB_member_id() %></td>
 </tr>
 </table>
 <table  style="width:500px;text-align:right">

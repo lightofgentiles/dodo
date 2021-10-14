@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/* 푸터 영역 CSS */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #263343;
+  padding: 8px 12px;
+}
+
+.footer_info {
+  color: white;
+}
+
+.footer_info_cscenter {
+  color: white;
+}
+
+
+/* 태블릿용 CSS navbar */
+@media screen and (max-width: 768px) {
+	
+  .footer {
+	font-size: 50%;
+  }
+}

@@ -3,8 +3,20 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.myapp.persistence.BoardService_Mapper">
 
+<insert id="boardInsert" parameterType="HashMap">
+insert into board(originbidx,depth,nlevel,b_subject,b_content,b_writer,b_pw,ip,b_member_id)
+values(select case count(*) when 0 then 1 else max(seq) + 1 end,0,0,#{subject},#{contents},#{pwd},#{ip},#{member_id})
+</insert>
+
+<select id="boardSelectAll" parameterType="scri" resultType="bv">
+select * from board where del_yn='N'
+order by bidx desc, originbidx desc, depth limit 1,15
+</select>
 
 
 
+<select id="boardTotalCount" parameterType="scri" resultType="Integer">
+select count(*) as cnt from board where del_yn='N'
+</select> 
 
 </mapper>

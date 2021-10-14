@@ -165,7 +165,7 @@ $("#member_id").blur(function() {
 
  <!-- header -->
   <div id="header">
-    <a><img src="${path}/img/DODO_CI.png" id="logo" /></a>
+    <a><img src="${path}/images/DODO_CI.png" id="logo" /></a>
   </div>
 <form name="frm" class="joinForm">
 <!-- wrapper -->
@@ -190,7 +190,7 @@ $("#member_id").blur(function() {
           <span class="box int_pass">
             <input name="member_pw" type="text" id="pswd1" class="int" maxlength="20" />
             <span id="alertTxt">사용불가</span>
-            <img src="${path}/img/m_icon_pass.png" id="pswd1_img1" class="pswdImg" />
+            <img src="${path}/images/m_icon_pass.png" id="pswd1_img1" class="pswdImg" />
           </span>
           <span class="error_next_box"></span>
         </div>
@@ -201,7 +201,7 @@ $("#member_id").blur(function() {
           <span class="box int_pass_check">
             <input name="member_pw2" type="text" id="pswd2" class="int" maxlength="20" />
             <img
-              src="${path}/img/m_icon_check_disable.png"
+              src="${path}/images/m_icon_check_disable.png"
               id="pswd2_img1"
               class="pswdImg"
             />

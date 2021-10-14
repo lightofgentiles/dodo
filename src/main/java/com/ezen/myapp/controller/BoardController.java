@@ -4,6 +4,10 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -32,16 +36,18 @@ public class BoardController {
 	public String boardWrite() {
 		
 	
-		return "boardWrite";
+		return "board/boardWrite";
 		
 	}
 	
 	@RequestMapping(value="/board/boardWriteAction.do")
 	public String boardWriteAction(
+			HttpServletRequest request,
+			HttpServletResponse response, 
+			Object handler,
 			@RequestParam("subject") String subject,
 			@RequestParam("contents") String contents,
-			@RequestParam("writer") String writer,
-			@RequestParam("pwd") String pwd		
+			@RequestParam("pwd") String pwd	
 			) {
 		String ip=null;
 		
@@ -53,10 +59,12 @@ public class BoardController {
 			e.printStackTrace();
 		}
 		
-		int midx =41 ;
+		HttpSession session = request.getSession();
+		String b_member_id = (String)session.getAttribute("memberId");
+		
 		
 			
-		int result = bs.boardInsert(subject, contents, writer, pwd, ip, midx);
+		int result = bs.boardInsert(subject, contents, b_member_id, pwd, ip);
 		
 		String path = null;
 		if (result==1) {
@@ -73,11 +81,8 @@ public class BoardController {
 	public String boardList(SearchCriteria scri, Model  model) {
 		
 		int cnt = bs.boardTotalCount(scri);
-		//System.out.println("cnt"+cnt);
-		
+			
 		ArrayList<BoardVo> alist = bs.boardSelectAll(scri);
-		
-		//System.out.println("alist"+alist);
 		
 		pm.setScri(scri);
 		pm.setTotalCount(cnt);
@@ -86,7 +91,7 @@ public class BoardController {
 		model.addAttribute("pm", pm);	
 		
 		
-		return "boardList";
+		return "board/boardList";
 	}
 	
 	
