@@ -4,31 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-        table.table2{
-                border-collapse: separate;
-                border-spacing: 1px;
-                text-align: left;
-                line-height: 1.5;
-                border-top: 1px solid #ccc;
-                margin : 20px 10px;
-        }
-        table.table2 tr {
-                 width: 50px;
-                 padding: 10px;
-                font-weight: bold;
-                vertical-align: top;
-                border-bottom: 1px solid #ccc;
-        }
-        table.table2 td {
-                 width: 50px;
-                 padding: 10px;
-                 vertical-align: top;
-                 border-bottom: 1px solid #ccc;
-        }
- 
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>고객 문의 하기</title>
+<!-- include libraries(jQuery, bootstrap) -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
 <script type="text/javascript">
 function check(){
 	var fm = document.frm;
@@ -58,11 +43,12 @@ function check(){
 }
 </script>
 </head>
-<body>
-	<article>
-		<div class="container" role="main">
-			<h2>board Form</h2>
-<form name="frm">
+<body style="padding-top: 5rem;">
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" href="#">고객 문의 하기</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+	</nav>
+	<form name="frm">
  			<div class="mb-3">
 
 					<label for="title">제목</label>
@@ -100,7 +86,7 @@ function check(){
 					<input type="text" class="form-control" name="tag" id="tag" placeholder="태그를 입력해 주세요">
 
 				</div>
-</form>
+		</form>
 
 			<div >
 
@@ -112,7 +98,6 @@ function check(){
 
 		</div>
 
-	</article>
 
 
 </body>
