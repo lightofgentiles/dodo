@@ -1,45 +1,40 @@
+
 @charset "utf-8";
 
+/* 모바일용 CSS */
 /* 기본 CSS */
 
-/* 헤더 영역 CSS */
 
-.main_text {
+/* 슬라이더 영역 CSS */
+/* Slideshow container */
+.slideshow-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+
+.mySlides img {
+  width: 100%; 
+  min-width: 30rem; 
+  height: auto;
   text-align: center;
 }
 
-.hdGnb {
-  display: flex;
-  justify-content: right;
-  font-size: 12px;
-}
 
-.hdGnb li {
-  line-height: 1rem;
-  font-family: "Gill Sans";
-  list-style: none;
-  padding-left: 0px;
-  margin-left: 2rem;
-}
-
-.hdGnb li a {
-  color: black;
-}
-
-/* 슬라이더 영역 CSS */
-.slider img {
-  display: flex;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-}
 
 /* Main 영역 */
 .main_text {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  width: 93.9%;
   padding: 1em;
   background-color: pink;
+  margin: 0 auto;
+  font-size: 1.3em;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
+
 .table-wrap {
   display: flex;
   justify-content: space-around;
@@ -56,7 +51,7 @@
 .footer {
   display: flex;
   justify-content: space-between;
-  background-color: black;
+  background-color: #263343;
   padding: 8px 12px;
 }
 
@@ -68,15 +63,23 @@
   color: white;
 }
 
-.footer_info_refund {
-  color: white;
-}
-
 /* 태블릿용 CSS navbar */
 @media screen and (max-width: 768px) {
   /*vertical*/
   .table_wrap {
     position: relative;
     padding-top: 42px;
+  }
+  
+  .main_text {
+    font-size: 0.8em;
+  }
+  
+  .slider img {
+  	width: 50%; 
+	}
+	
+  .footer {
+	font-size: 50%;
   }
 }

@@ -5,6 +5,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+        table.table2{
+                border-collapse: separate;
+                border-spacing: 1px;
+                text-align: left;
+                line-height: 1.5;
+                border-top: 1px solid #ccc;
+                margin : 20px 10px;
+        }
+        table.table2 tr {
+                 width: 50px;
+                 padding: 10px;
+                font-weight: bold;
+                vertical-align: top;
+                border-bottom: 1px solid #ccc;
+        }
+        table.table2 td {
+                 width: 50px;
+                 padding: 10px;
+                 vertical-align: top;
+                 border-bottom: 1px solid #ccc;
+        }
+ 
+</style>
 <script type="text/javascript">
 function check(){
 	var fm = document.frm;
@@ -16,10 +40,6 @@ function check(){
 	}else if (fm.contents.value == ""){
 		alert("내용을 입력하세요");
 		fm.contents.focus();
-		return false;
-	}else if (fm.writer.value == ""){
-		alert("작성자를 입력하세요");
-		fm.writer.focus();
 		return false;
 	}else if (fm.pwd.value == ""){
 		alert("비번을 입력하세요");
@@ -39,35 +59,61 @@ function check(){
 </script>
 </head>
 <body>
+	<article>
+		<div class="container" role="main">
+			<h2>board Form</h2>
 <form name="frm">
-<table border=1 style="width:500px">
-<tr>
-<td>제목</td>
-<td><input type="text" name="subject"></td>
-</tr>
-<tr>
-<td>내용</td>
-<td><textarea name="contents"></textarea></td>
-</tr>
-<tr>
-<td>작성자</td>
-<td><input type="text" name="writer"></td>
-</tr>
-<tr>
-<td>비밀번호</td>
-<td><input type="password" name="pwd"></td>
-</tr>
-<tr>
-<td>파일</td>
-<td><input type="file" name="filename"></td>
-</tr>
-<tr>
-<td colspan=2>
-<button name="btn1" onclick="check();return false;">확인</button>
-<button name="btn2" onclick="reset();">리셋</button>
-</td>
-</tr>
-</table>
+ 			<div class="mb-3">
+
+					<label for="title">제목</label>
+
+					<input type="text" class="form-control" name="title" id="title" placeholder="제목을 입력해 주세요">
+
+				</div>
+
+				
+
+				<div class="mb-3">
+
+					<label for="reg_id">작성자</label>
+
+					<input type="text" class="form-control" name="reg_id" id="reg_id" placeholder="이름을 입력해 주세요">
+
+				</div>
+
+				
+
+				<div class="mb-3">
+
+					<label for="content">내용</label>
+
+					<textarea class="form-control" rows="5" name="content" id="content" placeholder="내용을 입력해 주세요" ></textarea>
+
+				</div>
+
+				
+
+				<div class="mb-3">
+
+					<label for="tag">TAG</label>
+
+					<input type="text" class="form-control" name="tag" id="tag" placeholder="태그를 입력해 주세요">
+
+				</div>
 </form>
+
+			<div >
+
+				<button type="button" class="btn btn-sm btn-primary" id="btnSave">저장</button>
+
+				<button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button>
+
+			</div>
+
+		</div>
+
+	</article>
+
+
 </body>
 </html>

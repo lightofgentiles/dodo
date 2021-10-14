@@ -2,14 +2,13 @@ package com.ezen.myapp.domain;
 
 public class SearchCriteria extends Criteria {
 	
-	private String keyword; //�궎�썙�뱶
+	private String keyword; //
 	private String searchType; //
 	
 	public SearchCriteria(){
 		this.searchType = "subject";
 		this.keyword = "";
-	}
-	
+	}	
 	
 	public String getKeyword() {
 		return keyword;

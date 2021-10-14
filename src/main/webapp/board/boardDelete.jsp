@@ -41,7 +41,7 @@ function check(){
 		<tr>
 			<td>제목</td>
 			<td>
-			<input type="text" name="subject" value="<%=bv.getSubject()%>">
+			<input type="text" name="subject" value="<%=bv.getB_subject()%>">
 			</td>
 		</tr>
 		<tr>
