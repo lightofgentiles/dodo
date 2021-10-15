@@ -19,13 +19,13 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			) throws Exception {
 		
 		Object memberId = modelAndView.getModel().get("memberId");
-		
-		System.out.println("LoginInterceptor postHandle : memberId" + memberId);
-	
+		Object member_name = modelAndView.getModel().get("member_name");
+			
 		if (memberId != null) {
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("memberId", memberId);
+			session.setAttribute("member_name", member_name);
 		}		
 	}
 	
@@ -38,6 +38,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		HttpSession session = request.getSession();
 		if (session.getAttribute("memberId")  != null) {
 			session.removeAttribute("memberId");
+			session.removeAttribute("member_name");
 			session.invalidate();
 		}
 		return true;

@@ -1,3 +1,5 @@
+ALTER TABLE board AUTO_INCREMENT =1;
+
 CREATE TABLE ORDERS(
 oCode VARCHAR2(50) NOT NULL, 
 gdsCode NUMBER NOT NULL, 
@@ -27,10 +29,23 @@ COMMENT ON COLUMN ORDERS.oRequests IS '배송 요청사항';
 COMMENT ON COLUMN ORDERS.oPayment IS '결제수단(1.현금 2.카드 3.카카오페이)';
 COMMENT ON COLUMN ORDERS.amount IS ' 총 결제 금액';
 
+모든 제약 조건 보기
+select * from information_schema.table_constraints;
 
-ALTER TABLE sale
-ADD CONSTRAINT sale_pCode_product_pCode FOREIGN KEY (p_idx)
+ALTER TABLE comment
+ADD CONSTRAINT comment_bidx_board_bidx FOREIGN KEY (bidx)
+REFERENCES board (bidx) on delete cascade;
+
+alter table comment
+drop foreign key comment_ibfk_1;
+
+ALTER TABLE purchase
+ADD CONSTRAINT purchase_pidx_product_pidx FOREIGN KEY (p_idx)
 REFERENCES product (p_idx) on delete cascade;
+
+
+
+
 
 
 
@@ -235,6 +250,7 @@ CREATE TABLE B_FILE
     delGb VARCHAR2(1) DEFAULT 'N' NOT NULL,--삭제구분
     PRIMARY KEY(fCode)                    --기본키 fCode
 );
+
 
 
 

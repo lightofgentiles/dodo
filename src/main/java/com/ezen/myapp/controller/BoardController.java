@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ezen.myapp.domain.BoardVo;
 import com.ezen.myapp.domain.PageMaker;
@@ -45,6 +46,7 @@ public class BoardController {
 			HttpServletRequest request,
 			HttpServletResponse response, 
 			Object handler,
+			RedirectAttributes rttr, //이 클래스에 주소창에 넣어서 값이 들어가지 않고 hidden으로 한번만 사용한다.
 			@RequestParam("subject") String subject,
 			@RequestParam("contents") String contents,
 			@RequestParam("pwd") String pwd	
@@ -61,18 +63,20 @@ public class BoardController {
 		
 		HttpSession session = request.getSession();
 		String b_member_id = (String)session.getAttribute("memberId");
+		String b_member_name = (String)session.getAttribute("member_name");
 		
 		
 			
-		int result = bs.boardInsert(subject, contents, b_member_id, pwd, ip);
+		int result = bs.boardInsert(subject, contents, b_member_id, b_member_name, pwd, ip);
 		
 		String path = null;
 		if (result==1) {
-		path = "/board/boardList.do";
+			rttr.addFlashAttribute("msg", "글을 작성했습니다.");
+			path = "/board/boardList.do";
 		}else {
-			//path = "/board/boardReply.do?bidx="+bidx+"&orginbidx="+orginbidx+"&updown="+updown+"&leftright="+leftright;
-		}
-		
+			rttr.addFlashAttribute("msg", "다시 작성해주세요~");
+			path = "/board/boardWrite.do";
+		}		
 		
 		return "redirect:/"+path;
 	}

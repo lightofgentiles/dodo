@@ -67,6 +67,7 @@ public class MemberController {
 		}else {
 			
 			rttr.addAttribute("memberId", mv.getMember_id());
+			rttr.addAttribute("member_name", mv.getMember_name());
 			rttr.addFlashAttribute("msg", "로그인되었습니다.");
 			path = "redirect:/main/main.do";
 		}
@@ -84,6 +85,7 @@ public class MemberController {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("memberId")  != null) {
 			session.removeAttribute("memberId");
+			session.removeAttribute("member_name");
 			session.invalidate();
 		}
 				

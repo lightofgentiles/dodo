@@ -8,7 +8,7 @@ import com.ezen.myapp.domain.SearchCriteria;
 
 public interface BoardService {
 	
-	public int boardInsert(String subject, String contents, String b_member_id, String pwd, String ip);
+	public int boardInsert(String subject, String contents, String b_member_id, String b_member_name, String pwd, String ip);
 	
 	public int boardTotalCount(SearchCriteria scri);
 	
