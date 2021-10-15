@@ -14,17 +14,7 @@ public interface BoardService {
 	
 	public ArrayList<BoardVo> boardSelectAll(SearchCriteria scri);
 
-	public BoardVo boardSelectOne(int bidx);
-	
-	public ArrayList<CommentVo> commentSelectAll(int bidx);
-
-	public int commentInsert(String c_subject, String c_contents, String c_writer, int bidx, String ip, int midx);
-
-	public int commentDelete(int cidx);
-
-	public ArrayList<CommentVo> commentMore(int bidx, int page);
-
-	public int commentTotalPage(int bidx);
+	public BoardVo boardSelectOne(int bidx);	
 
 	public int boardModify(String subject, String contents, String writer, int bidx, String pwd);
 

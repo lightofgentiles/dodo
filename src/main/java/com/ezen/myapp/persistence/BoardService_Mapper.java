@@ -17,16 +17,6 @@ public interface BoardService_Mapper {
 
 	public BoardVo boardSelectOne(int bidx);
 
-	public ArrayList<CommentVo> commentSelectAll(int bidx);
-
-	public int commentInsert(HashMap<String, Object> hm);
-
-	public int commentDelete(int cidx);
-
-	public ArrayList<CommentVo> commentMore(HashMap<String,Object> hm);
-
-	public int commentTotalCount(int bidx);
-
 	public int boardModify(HashMap<String, Object> hm);
 
 	public int boardDelete(HashMap<String, Object> hm);

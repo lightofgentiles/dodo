@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ezen.myapp.domain.BoardVo;
-import com.ezen.myapp.domain.CommentVo;
 import com.ezen.myapp.domain.SearchCriteria;
 import com.ezen.myapp.persistence.BoardService_Mapper;
 
@@ -76,71 +75,7 @@ public class BoardServiceImpl implements BoardService {
 
 
 
-	@Override
-	public ArrayList<CommentVo> commentSelectAll(int bidx) {
-		BoardService_Mapper bsm =sqlSession.getMapper(BoardService_Mapper.class);		
-		ArrayList<CommentVo> clist = bsm.commentSelectAll(bidx);
-		
-		return clist;
-	}
-
-
-
-	@Override
-	public int commentInsert(String c_subject, String c_contents, String c_writer, int bidx, String ip, int midx) {
-		HashMap<String,Object> hm = new HashMap<String,Object>();
-		hm.put("c_subject", c_subject);
-		hm.put("c_contents", c_contents);
-		hm.put("c_writer", c_writer);
-		hm.put("bidx", bidx);
-		hm.put("midx", midx);
-		hm.put("ip", ip);
-		
-		System.out.println("commentInsert"+ hm);
-		
-		BoardService_Mapper bsm =sqlSession.getMapper(BoardService_Mapper.class);		
-		int result=bsm.commentInsert(hm);
-							
-		return result;
-	}
-
-
-
-	@Override
-	public int commentDelete(int cidx) {
-		// TODO Auto-generated method stub
-			
-		BoardService_Mapper bsm =sqlSession.getMapper(BoardService_Mapper.class);		
-		int result = bsm.commentDelete(cidx);
-				
-		return result;
-	}
-
-
-
-	@Override
-	public ArrayList<CommentVo> commentMore(int bidx, int page) {
-		HashMap<String,Object> hm = new HashMap<String,Object>();
-		hm.put("bidx", bidx);
-		hm.put("page", page);
-		
-		BoardService_Mapper bsm =sqlSession.getMapper(BoardService_Mapper.class);		
-		ArrayList<CommentVo> clist = bsm.commentMore(hm);
-		
-		return clist;
-	}
-
-
-
-	@Override
-	public int commentTotalPage(int bidx) {
-		BoardService_Mapper bsm =sqlSession.getMapper(BoardService_Mapper.class);
-		int cnt = bsm.commentTotalCount(bidx);
-		return cnt;
-	}
-
-
-
+	
 	@Override
 	public int boardModify(String subject, String contents, String writer, int bidx, String pwd) {
 		
@@ -156,7 +91,6 @@ public class BoardServiceImpl implements BoardService {
 							
 		return result;
 	}
-
 
 
 	@Override
