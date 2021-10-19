@@ -1,15 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import ="com.ezen.myapp.domain.*" %>    
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
+<%@ page import ="com.ezen.myapp.domain.*" %>   
 <%BoardVo bv = (BoardVo)request.getAttribute("bv");%>    
     
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<!-- jquery 3.3.1 라이브러리 활용 -->
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>고객 문의</title>
+<link rel="stylesheet" type="text/css" href="${path}/css/board.css">
+<!-- include libraries(jQuery, bootstrap) -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
 <script type="text/javascript">
 var msg ="${msg}";
@@ -19,207 +27,31 @@ if(msg){
 
 </script>
 
-
-<script type="text/javascript">
-
-$(function(){
-
-	$.boardCommentList();	
-
-	
-	$("#save").click(function(){   // 저장버튼을 클릭하면
-		var c_contents = $("#c_contents").val(); 
-		var c_subject = $("#c_subject").val();
-		var c_writer = $("#c_writer").val();
-		var bidx = "<%=bv.getBidx()%>";
-		var midx = 41;
-		
-
-	//	alert(bidx);
-		$.ajax({
-			
-			type : "POST",
-			url :  "<%=request.getContextPath() %>/board/comments.do", 
-			header :  { "Content-Type" : "application/json",
-				"X-HTTP-Method-Override" : "POST" },
-			dataType :  "json",
-			data : {"bidx" : bidx,
-					"midx" : midx,
-					"c_writer" : c_writer,
-					"c_subject" : c_subject,
-					"c_contents" : c_contents
-			},
-			cache : false,
-			success : function(data){
-				if (data.length == 0)
-					alert("데이터없음");
-				else {				
-				//	alert("결과값은"+data.result);
-					$.boardCommentList();	
-					$("#c_writer").val("");
-					$("#c_contents").val("");
-					$("#c_subject").val("");
-				}
-			},
-			error : function(){
-				alert("에러입니다.");
-			}
-			
-		});	
-	});	
-	
-});
-$.boardCommentList = function(){
-	var str;
-	var tstr="";
-	$.ajax({
-		type : "GET",		
-		url : "<%=request.getContextPath() %>/board/commentsAll.do?bidx=<%=bv.getBidx()%>",
-		dataType : "json",
-		cache : false,
-		error : function(){
-			alert("에러입니다.111");	
-		},
-		success : function(data){
-			if (data.length ==0)
-				//alert("데이터가 없습니다.");
-			else {
-			//	alert(data.length);	
-				$(data).each(function(){
-					
-				str = "<tr><td width=100>"+this.c_writer+"</td>"
-						+"<td width=100>"+this.c_subject+"</td>"
-						+"<td width=200>"+this.c_contents+"</td>"
-						+"<td width=70><input type='button' name='del' id='del"+this.cidx+"' onclick='$.check("+this.cidx+");'  value='삭제'>"
-						+"<input type='hidden' name='cidx' id='cidx' value='"+this.cidx+"'>"
-						+"</td>"
-						+"</tr>";		
-				
-				tstr = tstr+str;					
-				});
-			$("#tbl").html("<table border=1>"+tstr+"</table>");					
-				
-			}
-		} 
-	});		
-
-}	
-$.check = function(cidx){
-	var cidx = cidx;
-
-	$.ajax({
-		url : "<%=request.getContextPath()%>/board/commentDelete.do?cidx="+cidx,
-		type : "get",
-		dataType: "json",		
-		success : function(data){
-			if (data.length == 0)
-				alert("데이터가 없습니다.");
-			else
-			//	alert(data.result);	
-				$.boardCommentList();	
-		},
-		error : function(){
-			alert("삭제 에러입니다.");
-		}			
-	});
-}
-$.more = function(){
-	   var page = $("#page").val();
-	   
-	   var bidx = "<%=bv.getBidx()%>";
-	   var str;
-	   var tstr="";
-	   
-	   $.ajax({
-	      url : "<%=request.getContextPath()%>/board/commentMore.do?bidx="+bidx+"&page="+page,
-	      type : "get",
-	      dataType: "json",      
-	      success : function(data){
-	         if (data.length == 0)
-	            alert("데이터가 없습니다.");
-	         else {
-	         
-	         alert(data.nextpage);
-	            $("#page").val(data.nextpage);
-	         
-	            if (data.nextpage == 9999){
-	               $("#more").css("display","none");
-	            
-	            }   	            
-	      
-	            $(data.ja).each(function(){
-	               str = "<tr><td width=100>"+this.c_writer+"</td>"
-	               +"<td width=100>"+this.c_subject+"</td>"
-	               +"<td width=200>"+this.c_contents+"</td>"
-	               +"<td width=70><input type='button' name='del' id='del"+this.cidx+"' onclick='$.check("+this.cidx+");'  value='삭제'>"
-	               +"<input type='hidden' name='cidx' id='cidx' value='"+this.cidx+"'>"
-	               +"</td>"
-	               +"</tr>";      
-	         
-	               tstr = tstr+str;      
-	               });
-	            $("#tbl").html("<table border=1>"+tstr+"</table>");               
-	         }            
-	      },
-	      error : function(){
-	         alert("에러입니다.");
-	      }         
-	   });
-	}
-</script>
 </head>
-<body>
-내용보기 화면
-<table border="1" style="width:500px;">
-<tr>
-<td style="width:100px;">제목</td>
-<td><%=bv.getB_subject() %></td>
-</tr>
-<tr>
-<td>내용</td>
-<td style="height:300px;">
-<a href="<%=request.getContextPath()%>/board/fileDownload.do?fileName=<%=bv.getFilename() %>"><%=bv.getFilename() %></a>
-
-<img src="<%=request.getContextPath() %>/image/filefolder/<%=bv.getFilename() %>" >
-<%=bv.getB_contents() %>
-
-</td>
-</tr>
-<tr>
-<td>작성자</td>
-<td><%=bv.getB_member_id() %></td>
-</tr>
-</table>
-<table  style="width:500px;text-align:right">
-<tr>
-<td>
-<button class="btn" onclick="document.location.href='<%=request.getContextPath()%>/board/boardModify.do?bidx=<%=bv.getBidx()%>' ">수정</button>
-<button class="btn" onclick="document.location.href='<%=request.getContextPath()%>/board/boardDelete.do?bidx=<%=bv.getBidx()%>' ">삭제</button>
-<button class="btn" onclick="document.location.href='<%=request.getContextPath()%>/board/boardReply.do?bidx=<%=bv.getBidx()%>&originbidx=<%=bv.getOriginbidx()%>&depth=<%=bv.getDepth()%>&nlevel=<%=bv.getNlevel()%>' ">답변</button>
-<button class="btn">목록</button>
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td colspan=2>작성자:<input type="text" name="c_writer" id="c_writer" maxlength=10  size=10>
-제   목:<input type="text" name="c_subject" id="c_subject" maxlength=10 size=10></td>
-</tr>
-<tr>
-<td>내&nbsp;&nbsp;&nbsp;용:<textarea name="c_contents"  id="c_contents"  cols=50 rows=2> </textarea> </td>
-<td><input type="button"  name="save" id="save" value="저장"></td>
-</tr>
-</table>
-<div id="tbl"></div>
-<table><tr><td>
-<input type='button'  name='more'  id='more'  value='더보기'  onclick='$.more();'>
-<input type="hidden" name="page"  id ="page"  value="2">
-
-</td></tr></table>
-<br>
-<br>
-<br>
-<br>
+<body style="padding-top: 1rem;">
+	<div class="navbar">
+		<div class="navbar-brand">고객 Q/A</div>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+	</div>
+	<main role="main" class="container">
+		<form name="frm">
+			<div class="pt-1">
+				<input type="text" name="subject" style="border-radius:5px; width:100%; padding:5px;" value="<%=bv.getB_subject()%>" readonly/>
+			</div>
+			<div class="pt-1">
+				<textarea id="summernote" name="contents" cols="10" rows="10" style="width:100%; height:100%;" readonly><%=bv.getB_content()%></textarea>
+			</div>
+			<div class="pt-1">
+				<input type="text" name="B_member_id" style="color:white;background-color:black; width:10%;text-align: center;padding:5px;" value="글쓴이" readonly>
+				<input type="text" name="B_member_id" style="border-radius:5px; width:20%; padding:5px;" value="<%=bv.getB_member_id() %>" readonly>
+			</div>
+			<div class="pt-1 text-right">
+			<table  style="width:500px;text-align:right">
+			<button name="btn1"class="btn btn btn-success" style="width:10%; padding:5px;" onclick="document.location.href='${path}/board/boardModify.do?bidx=<%=bv.getBidx()%>' ">수정</button>
+			<button name="btn1"class="btn btn btn-danger" style="width:10%; padding:5px;" onclick="document.location.href='${path}/board/boardDelete.do?bidx=<%=bv.getBidx()%>' ">삭제</button>
+			</div>
+		</form>
+	</main>
 </body>
+
 </html>

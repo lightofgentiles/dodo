@@ -34,8 +34,7 @@ public class BoardController {
 	
 	
 	@RequestMapping(value="/board/boardWrite.do")
-	public String boardWrite() {
-		
+	public String boardWrite() {		
 	
 		return "board/boardWrite";
 		
@@ -65,6 +64,9 @@ public class BoardController {
 		String b_member_id = (String)session.getAttribute("memberId");
 		String b_member_name = (String)session.getAttribute("member_name");
 		
+		String MyString = contents;
+		MyString = MyString.replace("<p>", ""); 
+		contents = MyString.replace("</p>", "");
 		
 			
 		int result = bs.boardInsert(subject, contents, b_member_id, b_member_name, pwd, ip);
@@ -92,10 +94,21 @@ public class BoardController {
 		pm.setTotalCount(cnt);
 		
 		model.addAttribute("alist", alist);
-		model.addAttribute("pm", pm);	
-		
+		model.addAttribute("pm", pm);		
 		
 		return "board/boardList";
+	}
+	
+	@RequestMapping(value="/board/boardContents.do")
+	public String boardContents(
+			@RequestParam("bidx") int bidx,		
+			Model model) {		
+
+		BoardVo bv = bs.boardSelectOne(bidx);
+		model.addAttribute("bv", bv);
+	
+		
+		return "board/boardContents";
 	}
 	
 	

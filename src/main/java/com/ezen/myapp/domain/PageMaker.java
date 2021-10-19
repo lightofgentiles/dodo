@@ -63,12 +63,11 @@ public class PageMaker {
 	
 	public void calcData() {
 		
-		endPage =(int)(Math.ceil(scri.getPage()/(double)displayPageNum)*displayPageNum); //�떎 �삱由� 泥섎━瑜� �븳�떎. �떎�쓬 �럹�씠吏��룄 �븯�굹 data留� �엳�뼱�룄 ceil �궗�슜
-		
+		endPage =(int)(Math.ceil(scri.getPage()/(double)displayPageNum)*displayPageNum); 
 		startPage = (endPage-displayPageNum)+1;
 		
 				
-		int tempEndPage = (int)Math.ceil(totalCount/(double)scri.getPerPageNum()); //endPage媛� �엫�떆 �럹�씠吏�蹂대떎 �넂�쓣�븣 �엫�떆�럹�씠吏�媛� endPage �릺寃�
+		int tempEndPage = (int)Math.ceil(totalCount/(double)scri.getPerPageNum()); 
 		
 		if(endPage>tempEndPage) {
 			endPage = tempEndPage;
@@ -80,7 +79,6 @@ public class PageMaker {
 	}
 	
 
-	//�궎�썙�뱶媛� 源⑥��뒗 諛⑹�
 	public String encoding(String keyword) {
 		String keyword2=null;
 		if(keyword == null || keyword.trim().length()==0){

@@ -4,7 +4,7 @@ public class BoardVo {
 	
 	private int bidx;
 	private String b_subject;
-	private String b_contents;
+	private String b_content;
 	private String b_member_id;
 	private int viewcount;
 	private String writeday;
@@ -28,11 +28,11 @@ public class BoardVo {
 	public void setB_subject(String b_subject) {
 		this.b_subject = b_subject;
 	}
-	public String getB_contents() {
-		return b_contents;
+	public String getB_content() {
+		return b_content;
 	}
-	public void setB_contents(String b_contents) {
-		this.b_contents = b_contents;
+	public void setB_content(String b_content) {
+		this.b_content = b_content;
 	}
 	public String getB_member_id() {
 		return b_member_id;

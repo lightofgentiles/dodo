@@ -59,8 +59,13 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public ArrayList<BoardVo> boardSelectAll(SearchCriteria scri) {
+		
+		HashMap<String,Object> hm = new HashMap<String,Object>();
+		hm.put("f_str", (scri.getPage()-1)*scri.getPerPageNum()+1);
+		hm.put("e_str", scri.getPage()*scri.getPerPageNum());
+		
 		BoardService_Mapper bsm =sqlSession.getMapper(BoardService_Mapper.class);	
-		ArrayList<BoardVo> alist = bsm.boardSelectAll(scri);
+		ArrayList<BoardVo> alist = bsm.boardSelectAll(hm);
 		return alist;
 	}
 	

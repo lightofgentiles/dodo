@@ -35,7 +35,7 @@
 <%@ include file="/include/header.jsp" %>
 
 		<section class="sub_header_section">
-			<h2>고개 문의사항</h2>
+			<h2>고객 Q/A</h2>
 		</section>
 		<section class="content_section">
 			<div class="content_row_1">
@@ -95,13 +95,13 @@
 			</div>
 			<div class="content_row_3">
 				<% if(pm.isPrev()==true){ %>
-				<a href="${path}/board/boardList.do?page=<%=pm.getStartPage()-1 %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>"><span class="list_prev_btn">문의사항 이전 버튼</span></a>
+				<span class="list_prev_btn"><a href="${path}/board/boardList.do?page=<%=pm.getStartPage()-1 %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>">문의사항 이전 버튼</a></span>
 				<%}%>
 				<% for(int i =pm.getStartPage();i<=pm.getEndPage();i++){%>
 				<a href="${path}/board/boardList.do?page=<%=i %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>"><%=i %></a>
 				<%}%>
 				<%if (pm.isNext() && pm.getEndPage()>0) { %>
-				<a href="${path}/board/boardList.do?page=<%=pm.getEndPage()+1 %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>">	<span class="list_next_btn">문의사항 다음 버튼</span></a>
+				<span class="list_next_btn"><a href="${path}/board/boardList.do?page=<%=pm.getEndPage()+1 %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>">문의사항 다음 버튼</a></span>
 				<%}%>			
 			</div>
 		</section>
