@@ -22,4 +22,12 @@ select count(*) as cnt from board where del_yn='N'
 select * from board where del_yn='N' and bidx = #{bidx}
 </select>
 
+<update id="boardModify" parameterType="HashMap">
+update board set subject=#{subject}, writer=#{writer},contents=#{contents},writeday=now() where bidx=#{bidx} and pwd=#{pwd} 
+</update>
+
+<update id="boardDelete">
+update board set del_yn='Y',writeday= now() where bidx=#{bidx} and pwd = #{pwd}
+</update>
+
 </mapper>

@@ -82,7 +82,7 @@ public class BoardServiceImpl implements BoardService {
 
 	
 	@Override
-	public int boardModify(String subject, String contents, String writer, int bidx, String pwd) {
+	public int boardModify(int bidx,  String contents, String writer, String subject, String pwd) {
 		
 		HashMap<String,Object> hm = new HashMap<String,Object>();
 		hm.put("subject", subject);

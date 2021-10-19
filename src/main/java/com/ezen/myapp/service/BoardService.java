@@ -16,7 +16,7 @@ public interface BoardService {
 
 	public BoardVo boardSelectOne(int bidx);	
 
-	public int boardModify(String subject, String contents, String writer, int bidx, String pwd);
+	public int boardModify(int bidx, String contents, String writer, String subject, String pwd);
 
 	public int boardDelete(int bidx, String pwd);
 

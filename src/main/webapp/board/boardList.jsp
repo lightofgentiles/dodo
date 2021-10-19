@@ -98,7 +98,7 @@
 				<span class="list_prev_btn"><a href="${path}/board/boardList.do?page=<%=pm.getStartPage()-1 %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>">문의사항 이전 버튼</a></span>
 				<%}%>
 				<% for(int i =pm.getStartPage();i<=pm.getEndPage();i++){%>
-				<a href="${path}/board/boardList.do?page=<%=i %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>"><%=i %></a>
+				<a href="${path}/board/boardList.do?page=<%=i %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>"><%=i%></a>
 				<%}%>
 				<%if (pm.isNext() && pm.getEndPage()>0) { %>
 				<span class="list_next_btn"><a href="${path}/board/boardList.do?page=<%=pm.getEndPage()+1 %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>">문의사항 다음 버튼</a></span>

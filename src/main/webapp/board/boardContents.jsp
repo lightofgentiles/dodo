@@ -47,7 +47,7 @@ if(msg){
 			</div>
 			<div class="pt-1 text-right">
 			<table  style="width:500px;text-align:right">
-			<button name="btn1"class="btn btn btn-success" style="width:10%; padding:5px;" onclick="document.location.href='${path}/board/boardModify.do?bidx=<%=bv.getBidx()%>' ">수정</button>
+			<button name="btn1"class="btn btn btn-success" style="width:10%; padding:5px;" onclick="${path}/board/boardModify.do?bidx=<%=bv.getBidx()%>">수정</button>
 			<button name="btn1"class="btn btn btn-danger" style="width:10%; padding:5px;" onclick="document.location.href='${path}/board/boardDelete.do?bidx=<%=bv.getBidx()%>' ">삭제</button>
 			</div>
 		</form>
