@@ -66,8 +66,7 @@
 							<a href="${path}/board/boardContents.do?bidx=<%=bv.getBidx()%>"><%=bv.getB_subject()%></a>
 						</td>
 						<td><%=bv.getB_member_id()%></td>
-						<td><%=bv.getViewcount()%>
-						</td>
+						<td><%=bv.getViewcount()%></td>
 					</tr>
 					<%} %>
 					</tbody>

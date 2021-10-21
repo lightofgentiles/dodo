@@ -117,7 +117,8 @@ public class BoardController {
 			@RequestParam("bidx") int bidx, 
 			Model model) {
 		
-		//boardService�� �ִ� �޼ҵ� ȣ��
+		System.out.println("/board/boardModify.do : bidx " + bidx);
+
 		BoardVo bv = bs.boardSelectOne(bidx);
 		model.addAttribute("bv", bv);		
 		
@@ -129,12 +130,11 @@ public class BoardController {
 			@RequestParam("bidx") int bidx,
 			@RequestParam("subject") String subject,
 			@RequestParam("contents") String contents,
-			@RequestParam("writer") String writer,
 			@RequestParam("pwd") String pwd,
 			RedirectAttributes rttr
 			) {
 		
-		int value = bs.boardModify(bidx, subject, contents, writer, pwd);
+		int value = bs.boardModify(bidx, subject, contents,pwd);
 		
 		String movelocation = null;
 		if (value ==0) {			

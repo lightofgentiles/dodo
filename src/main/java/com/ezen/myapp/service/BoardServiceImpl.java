@@ -82,12 +82,11 @@ public class BoardServiceImpl implements BoardService {
 
 	
 	@Override
-	public int boardModify(int bidx,  String contents, String writer, String subject, String pwd) {
+	public int boardModify(int bidx, String subject,  String contents, String pwd) {
 		
 		HashMap<String,Object> hm = new HashMap<String,Object>();
 		hm.put("subject", subject);
 		hm.put("contents", contents);
-		hm.put("writer", writer);
 		hm.put("bidx", bidx);
 		hm.put("pwd", pwd);
 
