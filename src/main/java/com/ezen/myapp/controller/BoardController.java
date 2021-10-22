@@ -85,7 +85,10 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/board/boardList.do")
-	public String boardList(SearchCriteria scri, Model  model) {
+	public String boardList(
+			SearchCriteria scri,
+			Model  model
+			) {
 		
 		int cnt = bs.boardTotalCount(scri);
 			

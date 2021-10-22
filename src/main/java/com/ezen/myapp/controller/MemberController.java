@@ -68,10 +68,11 @@ public class MemberController {
 			
 			rttr.addAttribute("memberId", mv.getMember_id());
 			rttr.addAttribute("member_name", mv.getMember_name());
+			rttr.addAttribute("member_level", mv.getMember_level());
 			rttr.addFlashAttribute("msg", "로그인되었습니다.");
 			path = "redirect:/main/main.do";
 		}
-	
+		
 		return path;
 	}
 	
