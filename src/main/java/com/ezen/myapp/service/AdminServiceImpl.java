@@ -43,6 +43,26 @@ public class AdminServiceImpl implements AdminService {
 		return alist;
 	}
 
+	@Override
+	public int AdminProductInsert(String p_code, String p_category, String p_name, String p_price, String p_qty,
+			String p_indate, String p_img, String p_text) {
+		
+		HashMap<String,Object> hm = new HashMap<String,Object>();
+		hm.put("p_code", p_code);
+		hm.put("p_category", p_category);
+		hm.put("p_name", p_name);
+		hm.put("p_price", p_price);
+		hm.put("p_qty", p_qty);
+		hm.put("p_indate", p_indate);
+		hm.put("p_img", p_img);
+		hm.put("p_text", p_text);
+		
+		AdminService_Mapper asm = sqlSession.getMapper(AdminService_Mapper.class);
+		int result = asm.AdminProductInsert(hm);
+		
+		return result;
+	}
+
 
 	
 	

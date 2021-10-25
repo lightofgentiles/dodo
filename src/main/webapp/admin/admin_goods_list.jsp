@@ -28,6 +28,20 @@
 	}
 </script>
 
+<script type="text/javascript">
+ 
+    $(function(){
+        $("#resTb tbody").append($("#resInfoTr").html());
+
+    });
+    
+    function resOpenPopup(){
+        var pop = window.open("${path}/admin/adminProductWrite.do?","resPopup","width=1100,height=900, scrollbars=yes, resizable=yes"); 
+        pop.focus();
+    }
+        
+</script>
+
 <body>
 <h1>상품목록</h1>
 <%@ include file="/include/adminheader.jsp" %>
@@ -53,11 +67,12 @@
 					</form>
 				</div>
 				<div class="write_box">
-					<a href="${path}/board/boardWrite.do">상품등록</a>
+					<a href="javascript:void(0);" onclick="resOpenPopup();return false;">상품등록</a>
 				</div>
 			</div>
 			<div class="content_row_1">
 				<table class="table table-hover" >
+				 	<thead>
 						<tr>						
 							<th>상품번호</th>
 							<th>상품코드</th>
@@ -66,8 +81,6 @@
 							<th>재고수량</th>
 							<th>상품가격</th>
 							<th>사진</th>
-							<th>상품세일유무</th>
-						    <th>상품세일가격</th>
 						    <th>상품입고날짜</th>
 						    <td>수정/삭제</td>							
 						</tr>
@@ -79,11 +92,9 @@
 						<td><a href="${path}/board/boardContents.do?bidx=<%=pv.getP_idx()%>" style="color:black;"><%=pv.getP_code()%></a></td>
 						<td><%=pv.getP_category() %></td>
 						<td><%=pv.getP_name()%></td>
-						<td><%=pv.getP_cot()%></td>
+						<td><%=pv.getP_qty()%></td>
 						<td><%=pv.getP_price()%></td>										
 						<td><img src="${path}/images/p_images/<%=pv.getP_category() %>/<%=pv.getP_img()%>"  width=10%, height=10% ></td>				
-						<td><%=pv.isP_sale()%></td>
-						<td><%=pv.getP_sale_price()%></td>
 						<td><%=pv.getP_indate()%></td>
 						<td><a href="#" style="color: orange;font-size: 1.0em;font-weight: bold;background: #efefef;">수정</a>
 						/<a href="#" style="color: red;font-size: 1.0em;font-weight: bold;background: #efefef;">삭제</a></td>			
