@@ -9,7 +9,7 @@
 	         			<li><a href="${path}/member/memberJoin.do"><img src="${path}/images/s_images/info_icon_03.png" alt="회원가입"></a></li>
 	         			<li><a href="${path}/board/boardList.do"><img src="${path}/images/s_images/info_icon_04.png?ver=1" alt="고객문의"></a></li>
 	         		<c:if test="${sessionScope.member_level eq 'admin'}" >	
-	         			<li><a href="${path}/adminmain/main.do"><img src="${path}/images/s_images/admin.png?ver=1" alt="관리자"></a></li>
+	         			<li><a href="${path}/admin/main.do"><img src="${path}/images/s_images/admin.png?ver=1" alt="관리자"></a></li>
          			</c:if>
       			</c:if>      
       			<c:if test="${sessionScope.memberId == null}">

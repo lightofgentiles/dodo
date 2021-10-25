@@ -3,14 +3,18 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.myapp.persistence.AdminService_Mapper">
 
-<select id="AdminProductSelectAll" parameterType="HashMap" resultType="pv">
-select * from product where del_yn='N'
-order by p_idx desc limit #{f_str},#{e_str}
+	<select id="AdminProductSelectAll" parameterType="HashMap" resultType="pv">
+	select * from product where del_yn='N'
+	order by p_idx desc limit #{f_str},#{e_str}
+	</select>
 
-</select>
+	<select id="AdminProductTotalCount" parameterType="scri" resultType="Integer">
+	select count(*) as cnt from product where del_yn='N'
+	</select>
 
-<select id="AdminProductTotalCount" parameterType="scri" resultType="Integer">
-select count(*) as cnt from product where del_yn='N'
-</select>
-
+	<insert id="AdminProductInsert" parameterType="HashMap">
+	insert into product(p_code,p_category,p_name,p_price,p_qty,p_indate,p_text,p_img)
+	values(#{p_code},#{p_category},#{p_name},#{p_price},#{p_qty},#{p_indate},#{p_text},#{p_img})
+	</insert>
+	
 </mapper>

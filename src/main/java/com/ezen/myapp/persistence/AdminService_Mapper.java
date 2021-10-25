@@ -11,6 +11,8 @@ public interface AdminService_Mapper {
 	int AdminProductTotalCount(SearchCriteria scri);
 
 	ArrayList<ProductVo> AdminProductSelectAll(HashMap<String, Object> hm);
+
+	int AdminProductInsert(HashMap<String, Object> hm);
 	
 	
 }

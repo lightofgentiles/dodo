@@ -6,16 +6,14 @@ public class ProductVo {
 	private String p_code; //상품코드
 	private String p_category; //카데고리
 	private String p_name;  //상품명
-	private String p_manuf; //제조사명
-	private int p_cot; //재고수량
+	private int p_qty; //재고량
 	private String p_price; //상품가격
-	private boolean p_sale; //상품세일유무
-	private String p_sale_price; //상품세일가격
 	private String p_regdate; //등록일자
 	private String p_indate; //입고일자
 	private String p_text; //상품상세정보
 	private String p_img; //제품이미지
 	private String p_infoimg; //제품상세이미지	
+	
 	
 	public int getP_idx() {
 		return p_idx;
@@ -41,36 +39,14 @@ public class ProductVo {
 	public void setP_name(String p_name) {
 		this.p_name = p_name;
 	}
-	public String getP_manuf() {
-		return p_manuf;
-	}
-	public void setP_manuf(String p_manuf) {
-		this.p_manuf = p_manuf;
-	}
-	public int getP_cot() {
-		return p_cot;
-	}
-	public void setP_cot(int p_cot) {
-		this.p_cot = p_cot;
-	}
+
 	public String getP_price() {
 		return p_price;
 	}
 	public void setP_price(String p_price) {
 		this.p_price = p_price;
 	}
-	public boolean isP_sale() {
-		return p_sale;
-	}
-	public void setP_sale(boolean p_sale) {
-		this.p_sale = p_sale;
-	}
-	public String getP_sale_price() {
-		return p_sale_price;
-	}
-	public void setP_sale_price(String p_sale_price) {
-		this.p_sale_price = p_sale_price;
-	}
+
 	public String getP_regdate() {
 		return p_regdate;
 	}
@@ -100,6 +76,12 @@ public class ProductVo {
 	}
 	public void setP_infoimg(String p_infoimg) {
 		this.p_infoimg = p_infoimg;
+	}
+	public int getP_qty() {
+		return p_qty;
+	}
+	public void setP_qty(int p_qty) {
+		this.p_qty = p_qty;
 	}
 
 	
