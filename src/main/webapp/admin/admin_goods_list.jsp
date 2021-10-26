@@ -26,15 +26,17 @@
 	if(msg){
 		alert(msg);
 	}
+	
+	var flag ="${flag}";
+	if(flag){
+		opener.parent.location.reload(); 
+		window.close();
+	}
+	
 </script>
 
-<script type="text/javascript">
- 
-    $(function(){
-        $("#resTb tbody").append($("#resInfoTr").html());
-
-    });
-    
+<script type="text/javascript"> 
+   
     function resOpenPopup(){
         var pop = window.open("${path}/admin/adminProductWrite.do?","resPopup","width=1100,height=900, scrollbars=yes, resizable=yes"); 
         pop.focus();

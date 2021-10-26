@@ -1,17 +1,18 @@
 package com.ezen.myapp.controller;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -35,8 +36,8 @@ import com.ezen.myapp.domain.PageMaker;
 import com.ezen.myapp.domain.ProductVo;
 import com.ezen.myapp.domain.SearchCriteria;
 import com.ezen.myapp.service.AdminService;
-import com.ezen.myapp.util.MediaUtils;
-import com.ezen.myapp.util.UploadFileUtiles;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
 
@@ -45,11 +46,11 @@ public class AdminController {
 	@Autowired
 	AdminService as;
 	
-	@Resource(name="uploadPath")
-	private String uploadPath;	
 	
 	@Autowired
 	PageMaker pm;
+	
+	
 	
 	@RequestMapping(value="/admin/main.do")
 	public String Adminmain(
@@ -86,23 +87,66 @@ public class AdminController {
 			HttpServletRequest request,
 			HttpServletResponse response, 
 			Object handler,
-			RedirectAttributes rttr, //이 클래스에 주소창에 넣어서 값이 들어가지 않고 hidden으로 한번만 사용한다.
-			@RequestParam("p_code") String p_code,
-			@RequestParam("p_category") String p_category,
-			@RequestParam("p_name") String p_name,	
-			@RequestParam("p_price") String p_price,
-			@RequestParam("p_qty") String p_qty,
-			@RequestParam("p_indate") String p_indate,	
-			@RequestParam("uploadfile") String p_img,
-			@RequestParam("p_text") String p_text	
+			RedirectAttributes rttr //이 클래스에 주소창에 넣어서 값이 들어가지 않고 hidden으로 한번만 사용한다.
+
 			
-			) {
+			) throws IOException {
+		
+	
+
+
+		//업로드 파일 경로
+		String uploadPath = request.getSession().getServletContext().getRealPath("/")+"\\images\\";
+		
+		System.out.println("uploadPath " + uploadPath);
+		//저장되는 파일
+		String  savedPath="p_images";
+		//if(p_category.equals("outer")) {
+		//	savedPath ="outer";
+			
+		//} else if(p_category.equals("blouse")){
+		//	savedPath ="blouse";	
+			
+		//}else if(p_category.equals("pants")){
+		//	savedPath ="pants";		
+
+		//}else {
+		//	savedPath ="top";
+			
+		//}
+
+		//저장된 총 경로
+		String saveFullPath = uploadPath+	savedPath;
+		//저장 용량
+		int sizeLimit = 1024*1024*15;	
+		
+		MultipartRequest multi = new MultipartRequest(request, saveFullPath, sizeLimit,"UTF-8",new DefaultFileRenamePolicy());
+		
+		//열거자에 저장된 파일을 담은 객체를 생성한다
+		Enumeration files = multi.getFileNames();
+		//열거자에 담은 파일의 다음 값을 꺼낸다
+		String file = (String) files.nextElement();
+		//저장되는 파일이름
+		String p_img = multi.getFilesystemName(file);
+		//원래 파일이름
+		String originFileName = multi.getOriginalFileName(file);	
+					
+		String p_code = multi.getParameter("p_code");
+		String p_category = multi.getParameter("p_category");
+		String p_name = multi.getParameter("p_name");
+		String p_price = multi.getParameter("p_price");
+		String p_qty = multi.getParameter("p_qty");
+		String p_indate = multi.getParameter("p_indate");
+		String p_text = multi.getParameter("p_text");
+		
+
 			
 		int result = as.AdminProductInsert(p_code, p_category, p_name, p_price, p_qty, p_indate, p_img, p_text);
 		
 		String path = null;
 		if (result==1) {
-			rttr.addFlashAttribute("msg", "글을 작성했습니다.");
+			rttr.addFlashAttribute("msg", "상품이 등록되었습니다.");
+			rttr.addFlashAttribute("flag", "1");
 			path = "/admin/main.do";
 		}else {
 			rttr.addFlashAttribute("msg", "다시 작성해주세요~");
@@ -110,72 +154,6 @@ public class AdminController {
 		}		
 		
 		return "redirect:/"+path;
-	}
-	
-	@ResponseBody
-	@RequestMapping(value="/admin/uploadAjax.do",method=RequestMethod.POST,produces="text/plain;charset=UTF-8")
-	public ResponseEntity<String> uploadAjax(MultipartFile file) throws Exception{
-		
-	
-		String uploadedFileName = UploadFileUtiles.uploadFile(uploadPath, 
-				file.getOriginalFilename(), 
-				file.getBytes());
-		
-		
-		ResponseEntity<String> entity = null;
-		entity = new ResponseEntity<String>(uploadedFileName,HttpStatus.CREATED);
-		
-		//  /2018/05/30/s-dfsdfsdf-dsfsff.jsp
-		return entity;
-	}
-	
-	@ResponseBody
-	@RequestMapping(value="/admin/displayFile.do", method=RequestMethod.GET)
-	public ResponseEntity<byte[]> displayFile(String fileName) throws Exception{
-		
-	//	System.out.println("fileName:"+fileName);
-		
-		InputStream in = null;		
-		ResponseEntity<byte[]> entity = null;
-		
-	//	logger.info("FILE NAME :"+fileName);
-		
-		try{
-			String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
-			MediaType mType = MediaUtils.getMediaType(formatName);
-			
-			HttpHeaders headers = new HttpHeaders();		
-			 
-			in = new FileInputStream(uploadPath+fileName);
-			
-			
-			if(mType != null){
-				headers.setContentType(mType);
-			}else{
-				
-				fileName = fileName.substring(fileName.indexOf("_")+1);
-				headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-				headers.add("Content-Disposition", "attachment; filename=\""+
-						new String(fileName.getBytes("UTF-8"),"ISO-8859-1")+"\"");				
-			}
-			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in),
-					headers,
-					HttpStatus.CREATED);
-			
-		}catch(Exception e){
-			e.printStackTrace();
-			entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
-		}finally{
-			in.close();
-		}
-		return entity;
-	} 
-	
-
-	
-	
-	
-	
-	
+	}	
 	
 }

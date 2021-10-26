@@ -13,7 +13,6 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
-
 <script>
     $.datepicker.setDefaults({
         dateFormat: 'yymmdd',
@@ -38,6 +37,8 @@
 
 
 function check(){
+
+	
 	var fm = document.frm;
 	
 	if (fm.p_code.value == ""){
@@ -56,123 +57,16 @@ function check(){
 	
 	fm.action="${path}/admin/adminProductWriteAction.do";
 	fm.method="post";
-	//ultipart library에서 muti recate가 넘어간다
-	//fm.enctype="multipart/form-data";
+	fm.enctype="multipart/form-data"
 
 	fm.submit();
 	
-	return;
+	return;	
+	
+	
+
 }
 </script>
-
-<script>
-function addFilePath(msg){
-	alert(msg);	
-}
-
-function checkImageType(fileName){
-	
-	var pattern = /jpg$|gif$|png$|jpeg$/i;
-	alert(fileName.match(pattern));
-	
-	return fileName.match(pattern);
-}
-
-function getOriginalName(fileName){
-//	alert(fileName);
-	//이미지파일이면 원본이름 안쓴다
-	if (checkImageType(fileName)) {
-		return;
-	}
-	
-	var idx = fileName.lastIndexOf("_")+1;
-	
-	alert(idx);
-	return fileName.substr(idx);
-}
-
-//파일이 이미지일경우
-function getImageLink(fileName){
-	if (!checkImageType(fileName)) {
-		return;
-	}
-	//위치 폴더뽑기
-	var front = fileName.substr(0,12);
-	//파일이름뽑기
-	//_는 빼고
-	var end = fileName.substr(14);
-	
-	return front+end;	
-}
-</script>
-<script>
-$(document).ready(function(){
-	
-	$(".fileDrop").on("dragenter dragover",function(event){
-	
-		event.preventDefault();		
-	});
-	
-	$(".fileDrop").on("drop",function(event){
-		
-		event.preventDefault();
-		
-		var files = event.originalEvent.dataTransfer.files;
-		var file = files[0];
-		
-		var formData = new FormData();
-		
-		formData.append("file",file);
-	//	alert("file"+file);
-		
-		$.ajax({
-			url:'<%=request.getContextPath()%>/admin/uploadAjax.do',
-			data: formData,
-			dataType:'text',
-			processData:false,
-			contentType:false,
-			type:'POST',
-			error: function(){
-				alert("에러입니다.");
-			},
-			success : function(data){
-				
-				//  /2018/05/30/s-sdsdsd-ssd22q.jpg
-				alert(data);
-			
-				// input--> sdsdsd-ssd22q.jpg
-				$("#uploadfile").val(data.replace("s-",""));		
-				
-				var str ="";
-				
-				if(checkImageType(data)){
-					str ="<div>"
-					+ "<a href='<%=request.getContextPath()%>/admin/displayFile.do?fileName="+getImageLink(data)+"'>"
-					+ "<img src='<%=request.getContextPath()%>/admin/displayFile.do?fileName="+data+"' />"
-					+ getImageLink(data) 
-					+ "</a>"
-					+ "</div>";
-				}else{
-					str = "<div>"
-						+ "<a href='<%=request.getContextPath()%>/admin/displayFile.do?fileName="+data+"'>"
-						+ getOriginalName(data) 
-						+ "</a>"
-						+ "</div>";
-				}
-				
-				$(".uploadedList").append(str);
-				
-			}		
-			
-		});	
-		
-	});	
-	
-});
-
-
-</script>
-
 
 </head>
 <body >
@@ -198,8 +92,8 @@ $(document).ready(function(){
 					OUTER
 					<input type="radio" name="p_category" value="blouse" >
 				    BLOUSE
-					<input type="radio" name="p_category" value="skirt" >
-					SKIRT
+					<input type="radio" name="p_category" value="top" >
+					TOP
 					<input type="radio" name="p_category" value="pants" >
 					PANTS
 				</div>
