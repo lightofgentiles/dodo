@@ -103,17 +103,17 @@ public class AdminController {
 		String path = null;
 		if (result==1) {
 			rttr.addFlashAttribute("msg", "글을 작성했습니다.");
-			path = "/board/boardList.do";
+			path = "/admin/main.do";
 		}else {
 			rttr.addFlashAttribute("msg", "다시 작성해주세요~");
-			path = "/board/boardWrite.do";
+			path = "admin/adminProductWrite.do";
 		}		
 		
 		return "redirect:/"+path;
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/board/uploadAjax.do",method=RequestMethod.POST,produces="text/plain;charset=UTF-8")
+	@RequestMapping(value="/admin/uploadAjax.do",method=RequestMethod.POST,produces="text/plain;charset=UTF-8")
 	public ResponseEntity<String> uploadAjax(MultipartFile file) throws Exception{
 		
 	
@@ -130,7 +130,7 @@ public class AdminController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/board/displayFile.do", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/displayFile.do", method=RequestMethod.GET)
 	public ResponseEntity<byte[]> displayFile(String fileName) throws Exception{
 		
 	//	System.out.println("fileName:"+fileName);

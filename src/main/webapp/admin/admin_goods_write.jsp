@@ -126,7 +126,7 @@ $(document).ready(function(){
 	//	alert("file"+file);
 		
 		$.ajax({
-			url:'<%=request.getContextPath()%>/board/uploadAjax.do',
+			url:'<%=request.getContextPath()%>/admin/uploadAjax.do',
 			data: formData,
 			dataType:'text',
 			processData:false,
@@ -147,14 +147,14 @@ $(document).ready(function(){
 				
 				if(checkImageType(data)){
 					str ="<div>"
-					+ "<a href='<%=request.getContextPath()%>/board/displayFile.do?fileName="+getImageLink(data)+"'>"
-					+ "<img src='<%=request.getContextPath()%>/board/displayFile.do?fileName="+data+"' />"
+					+ "<a href='<%=request.getContextPath()%>/admin/displayFile.do?fileName="+getImageLink(data)+"'>"
+					+ "<img src='<%=request.getContextPath()%>/admin/displayFile.do?fileName="+data+"' />"
 					+ getImageLink(data) 
 					+ "</a>"
 					+ "</div>";
 				}else{
 					str = "<div>"
-						+ "<a href='<%=request.getContextPath()%>/board/displayFile.do?fileName="+data+"'>"
+						+ "<a href='<%=request.getContextPath()%>/admin/displayFile.do?fileName="+data+"'>"
 						+ getOriginalName(data) 
 						+ "</a>"
 						+ "</div>";

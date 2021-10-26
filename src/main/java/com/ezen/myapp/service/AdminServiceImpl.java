@@ -35,7 +35,7 @@ public class AdminServiceImpl implements AdminService {
 	public ArrayList<ProductVo> AdminProductSelectAll(SearchCriteria scri) {
 		
 		HashMap<String,Object> hm = new HashMap<String,Object>();
-		hm.put("f_str", (scri.getPage()-1)*scri.getPerPageNum()+1);
+		hm.put("f_str", (scri.getPage()-1)*scri.getPerPageNum());
 		hm.put("e_str", scri.getPage()*scri.getPerPageNum());
 		
 		AdminService_Mapper asm =sqlSession.getMapper(AdminService_Mapper.class);	
