@@ -87,21 +87,14 @@ public class AdminController {
 			HttpServletRequest request,
 			HttpServletResponse response, 
 			Object handler,
-			RedirectAttributes rttr //이 클래스에 주소창에 넣어서 값이 들어가지 않고 hidden으로 한번만 사용한다.
+			RedirectAttributes rttr 
 
 			
 			) throws IOException {
 		
-	
-
-
-		//업로드 파일 경로
-		String uploadPath = request.getServletContext().getRealPath("resources/");
+		String uploadPath = "D:\\YJobs\\dodo\\src\\main\\webapp\\images\\";		
 		
-		
-		System.out.println("uploadPath " + uploadPath);
-		//저장되는 파일
-		String  savedPath="images";
+		String  savedPath="p_images";
 		//if(p_category.equals("outer")) {
 		//	savedPath ="outer";
 			
@@ -116,20 +109,20 @@ public class AdminController {
 			
 		//}
 
-		//저장된 총 경로
+		//���옣�맂 珥� 寃쎈줈
 		String saveFullPath = uploadPath+	savedPath;
-		//저장 용량
+		//���옣 �슜�웾
 		int sizeLimit = 1024*1024*15;	
 		
 		MultipartRequest multi = new MultipartRequest(request, saveFullPath, sizeLimit,"UTF-8",new DefaultFileRenamePolicy());
 		
-		//열거자에 저장된 파일을 담은 객체를 생성한다
+		//�뿴嫄곗옄�뿉 ���옣�맂 �뙆�씪�쓣 �떞�� 媛앹껜瑜� �깮�꽦�븳�떎
 		Enumeration files = multi.getFileNames();
-		//열거자에 담은 파일의 다음 값을 꺼낸다
+		//�뿴嫄곗옄�뿉 �떞�� �뙆�씪�쓽 �떎�쓬 媛믪쓣 爰쇰궦�떎
 		String file = (String) files.nextElement();
-		//저장되는 파일이름
+		//���옣�릺�뒗 �뙆�씪�씠由�
 		String p_img = multi.getFilesystemName(file);
-		//원래 파일이름
+		//�썝�옒 �뙆�씪�씠由�
 		String originFileName = multi.getOriginalFileName(file);	
 					
 		String p_code = multi.getParameter("p_code");
@@ -150,7 +143,7 @@ public class AdminController {
 			rttr.addFlashAttribute("flag", "1");
 			path = "/admin/main.do";
 		}else {
-			rttr.addFlashAttribute("msg", "다시 작성해주세요~");
+			rttr.addFlashAttribute("msg", "다시 작성하세요");
 			path = "admin/adminProductWrite.do";
 		}		
 		

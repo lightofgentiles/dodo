@@ -46,7 +46,7 @@ public class BoardController {
 			HttpServletRequest request,
 			HttpServletResponse response, 
 			Object handler,
-			RedirectAttributes rttr, //이 클래스에 주소창에 넣어서 값이 들어가지 않고 hidden으로 한번만 사용한다.
+			RedirectAttributes rttr, 
 			@RequestParam("subject") String subject,
 			@RequestParam("contents") String contents,
 			@RequestParam("pwd") String pwd	
@@ -74,10 +74,10 @@ public class BoardController {
 		
 		String path = null;
 		if (result==1) {
-			rttr.addFlashAttribute("msg", "글을 작성했습니다.");
+			rttr.addFlashAttribute("msg", "글이 작성되었습니다.");
 			path = "/board/boardList.do";
 		}else {
-			rttr.addFlashAttribute("msg", "다시 작성해주세요~");
+			rttr.addFlashAttribute("msg", "다시 작성해주세요");
 			path = "/board/boardWrite.do";
 		}		
 		
@@ -143,7 +143,7 @@ public class BoardController {
 		if (value ==0) {			
 			movelocation = "redirect:/board/boardModify.do?bidx="+bidx;			
 		}else {
-			rttr.addFlashAttribute("msg", "�����Ǿ����ϴ�.");
+			rttr.addFlashAttribute("msg", "수정되었습니다.");
 			movelocation = "redirect:/board/boardContents.do?bidx="+bidx;			
 		}
 		
@@ -154,7 +154,7 @@ public class BoardController {
 	public String boardDelete(
 			@ModelAttribute("bidx") int bidx,Model model) {
 		
-		//boardService�� �ִ� �޼ҵ� ȣ��
+		//boardService占쏙옙 占쌍댐옙 占쌨소듸옙 호占쏙옙
 		BoardVo bv = bs.boardSelectOne(bidx);
 		model.addAttribute("bv", bv);		
 		
@@ -168,9 +168,9 @@ public class BoardController {
 			RedirectAttributes rttr
 			) {
 		
-			//�޼ҵ� ȣ���Ѵ�
+			//占쌨소듸옙 호占쏙옙占싼댐옙
 		int value = bs.boardDelete(bidx, pwd);
-		rttr.addFlashAttribute("msg", "�����Ǿ����ϴ�.");
+		rttr.addFlashAttribute("msg", "삭제되었습니다.");
 		
 		
 		return "redirect:/board/boardList.do";
