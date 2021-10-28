@@ -88,7 +88,7 @@ function check(){
 			<div class="form-group row">
 				<label class="col-sm-2">분류</label>
 				<div class="col-sm-5">
-					<input type="radio" name="p_category" value="outer" >
+					<input type="radio" name="p_category" value="outer" checked>
 					OUTER
 					<input type="radio" name="p_category" value="blouse" >
 				    BLOUSE

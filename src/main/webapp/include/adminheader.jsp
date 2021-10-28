@@ -4,7 +4,7 @@
 		<div class="info_section">
 			<ul class="info_list">
 				<li><a href="${path}/main/main.do"><img src="${path}/images/s_images/info_icon_01.png" alt="HOME"></a></li>
-	         	<li><a href="${path}/member/memberLogin.do"><img src="${path}/images/s_images/info_icon_02_1.png" alt="로그아웃"></a></li>
+	         	<li><a href="${path}/member/memberLoginout.do"><img src="${path}/images/s_images/info_icon_02_1.png" alt="로그아웃"></a></li>
 			</ul>
 		</div>
 		

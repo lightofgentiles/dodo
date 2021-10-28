@@ -80,6 +80,7 @@ public class MemberController {
 	public String memberLoginout(
 			HttpServletRequest request,
 			HttpServletResponse response, 
+			RedirectAttributes rttr, //이 클래스에 주소창에 넣어서 값이 들어가지 않고 hidden으로 한번만 사용한다.
 			Object handler
 			) {
 		
@@ -88,6 +89,7 @@ public class MemberController {
 			session.removeAttribute("memberId");
 			session.removeAttribute("member_name");
 			session.invalidate();
+			rttr.addFlashAttribute("msg", "로그아웃되었습니다.");
 		}
 				
 		return "redirect:/main/main.do";

@@ -96,11 +96,12 @@ public class AdminController {
 
 
 		//업로드 파일 경로
-		String uploadPath = request.getSession().getServletContext().getRealPath("/")+"\\images\\";
+		String uploadPath = request.getServletContext().getRealPath("resources/");
+		
 		
 		System.out.println("uploadPath " + uploadPath);
 		//저장되는 파일
-		String  savedPath="p_images";
+		String  savedPath="images";
 		//if(p_category.equals("outer")) {
 		//	savedPath ="outer";
 			

@@ -5,7 +5,7 @@
 			<ul class="info_list">
 				<li><a href="${path}/main/main.do"><img src="${path}/images/s_images/info_icon_01.png" alt="HOME"></a></li>
 				<c:if test="${sessionScope.memberId != null}">	
-	         			<li><a href="${path}/member/memberLogin.do"><img src="${path}/images/s_images/info_icon_02_1.png" alt="로그아웃"></a></li>
+	         			<li><a href="${path}/member/memberLoginout.do"><img src="${path}/images/s_images/info_icon_02_1.png" alt="로그아웃"></a></li>
 	         			<li><a href="${path}/member/memberJoin.do"><img src="${path}/images/s_images/info_icon_03.png" alt="회원가입"></a></li>
 	         			<li><a href="${path}/board/boardList.do"><img src="${path}/images/s_images/info_icon_04.png?ver=1" alt="고객문의"></a></li>
 	         		<c:if test="${sessionScope.member_level eq 'admin'}" >	

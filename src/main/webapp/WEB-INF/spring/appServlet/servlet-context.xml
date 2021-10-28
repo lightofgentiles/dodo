@@ -21,9 +21,6 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>	
 
-	<beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="D:/uploadFiles" />
-	</beans:bean>
 	
 	<beans:bean id="loginInterceptor" class="com.ezen.myapp.interceptor.LoginInterceptor"></beans:bean>
 	<beans:bean id="authInterceptor" class="com.ezen.myapp.interceptor.AuthInterceptor"></beans:bean>
