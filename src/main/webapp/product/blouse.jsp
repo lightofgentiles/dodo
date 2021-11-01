@@ -42,7 +42,7 @@
     <br>
 
       <!--Main -->
-	  <div style="text-align : center;"><img src="${path}/images/s_images/outer.jpg" ></div>
+	  <div style="text-align : center;"><img src="${path}/images/s_images/blouse.jpg" ></div>
       <div class="table-wrap">
 	      	<div class="table-box table-box--vertical">
 		      <c:set var="i" value="0" /> 

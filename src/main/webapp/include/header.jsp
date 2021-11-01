@@ -30,9 +30,9 @@
 					<li><a href="#">NEW10%</a></li>
 					<li><a href="#">BEST</a></li>
 					<li><a href="${path}/product/outer.do">OUTER</a></li>
-					    <li><a href="#">BLOUSE</a></li>
-					<li><a href="#">TOP</a></li>
-					<li><a href="#">PANTS</a></li>
+					    <li><a href="${path}/product/blouse.do"">BLOUSE</a></li>
+					<li><a href="${path}/product/top.do"">TOP</a></li>
+					<li><a href="${path}/product/pants.do"">PANTS</a></li>
 					<!-- <li><a href="board.html">PANTS</a><span class="sub_menu_toggle_btn">하위 메뉴 토글 버튼</span></li> -->
 				</ul>
 			</nav>

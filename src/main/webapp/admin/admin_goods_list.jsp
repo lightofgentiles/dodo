@@ -54,7 +54,7 @@
 		<section class="content_section">
 			<div class="content_row_2">
 				<div class="search_box">
-					<form name="frm" action="${path}/board/boardList.do" method="post">
+					<form name="frm" action="${path}/admin/main.do" method="post">
 						<input type="search" name="gallery_search_window" class="search_window" placeholder="검색어">
 						<div class="search_select_box">
 							<span>검색 대상</span>
@@ -96,7 +96,7 @@
 						<td><%=pv.getP_name()%></td>
 						<td><%=pv.getP_qty()%></td>
 						<td><%=pv.getP_price()%></td>										
-						<td><img src="${path}/images/p_images/<%=pv.getP_category() %>/<%=pv.getP_img()%>"  width=10%, height=10% ></td>				
+						<td><img src="${path}/images/p_images/<%=pv.getP_img()%>"  width=10%, height=10% ></td>				
 						<td><%=pv.getP_indate()%></td>
 						<td><a href="#" style="color: orange;font-size: 1.0em;font-weight: bold;background: #efefef;">수정</a>
 						/<a href="#" style="color: red;font-size: 1.0em;font-weight: bold;background: #efefef;">삭제</a></td>			
@@ -108,13 +108,13 @@
 
 			<div class="content_row_3">
 				<% if(pm.isPrev()==true){ %>
-				<span class="list_prev_btn"><a href="${path}/board/boardList.do?page=<%=pm.getStartPage()-1 %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>">문의사항 이전 버튼</a></span>
+				<span class="list_prev_btn"><a href="${path}/admin/main.do?page=<%=pm.getStartPage()-1 %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>">문의사항 이전 버튼</a></span>
 				<%}%>
 				<% for(int i =pm.getStartPage();i<=pm.getEndPage();i++){%>
-				<a href="${path}/board/boardList.do?page=<%=i %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>"><%=i%></a>
+				<a href="${path}/admin/main.do?page=<%=i %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>"><%=i%></a>
 				<%}%>
 				<%if (pm.isNext() && pm.getEndPage()>0) { %>
-				<span class="list_next_btn"><a href="${path}/board/boardList.do?page=<%=pm.getEndPage()+1 %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>">문의사항 다음 버튼</a></span>
+				<span class="list_next_btn"><a href="${path}/admin/main.do?page=<%=pm.getEndPage()+1 %>&keyword=<%=pm.encoding(pm.getScri().getKeyword())%>&searchType=<%=pm.getScri().getSearchType()%>">문의사항 다음 버튼</a></span>
 				<%}%>			
 			</div>
 		</section>

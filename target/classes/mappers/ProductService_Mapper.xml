@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.myapp.persistence.ProductService_Mapper">
+
+<select id="productOuterSelectAll" parameterType="HashMap" resultType="pv">
+select * from product where p_category='outer' and del_yn='N'
+order by p_idx desc limit #{f_str},#{e_str}
+
+</select>
+
+<select id="productOuterTotalCount" parameterType="scri" resultType="Integer">
+select count(*) as cnt from product where p_category='outer' and del_yn='N'
+</select>
+
+<select id="productBlouseSelectAll" parameterType="HashMap" resultType="pv">
+select * from product where p_category='blouse' and del_yn='N'
+order by p_idx desc limit #{f_str},#{e_str}
+
+</select>
+
+<select id="productBlouseTotalCount" parameterType="scri" resultType="Integer">
+select count(*) as cnt from product where p_category='blouse' and del_yn='N'
+</select>
+
+<select id="productTopSelectAll" parameterType="HashMap" resultType="pv">
+select * from product where p_category='top' and del_yn='N'
+order by p_idx desc limit #{f_str},#{e_str}
+
+</select>
+
+<select id="productTopTotalCount" parameterType="scri" resultType="Integer">
+select count(*) as cnt from product where p_category='top' and del_yn='N'
+</select>
+
+<select id="productPantsSelectAll" parameterType="HashMap" resultType="pv">
+select * from product where p_category='pants' and del_yn='N'
+order by p_idx desc limit #{f_str},#{e_str}
+
+</select>
+
+<select id="productPantsTotalCount" parameterType="scri" resultType="Integer">
+select count(*) as cnt from product where p_category='pants' and del_yn='N'
+</select>
+
+
+
+
+</mapper>

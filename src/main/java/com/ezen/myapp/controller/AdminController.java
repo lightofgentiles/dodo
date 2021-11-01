@@ -92,37 +92,24 @@ public class AdminController {
 			
 			) throws IOException {
 		
+		System.out.println("p_category : uploadfile ");
+		
 		String uploadPath = "D:\\YJobs\\dodo\\src\\main\\webapp\\images\\";		
 		
 		String  savedPath="p_images";
-		//if(p_category.equals("outer")) {
-		//	savedPath ="outer";
-			
-		//} else if(p_category.equals("blouse")){
-		//	savedPath ="blouse";	
-			
-		//}else if(p_category.equals("pants")){
-		//	savedPath ="pants";		
 
-		//}else {
-		//	savedPath ="top";
-			
-		//}
-
-		//���옣�맂 珥� 寃쎈줈
 		String saveFullPath = uploadPath+	savedPath;
-		//���옣 �슜�웾
 		int sizeLimit = 1024*1024*15;	
 		
 		MultipartRequest multi = new MultipartRequest(request, saveFullPath, sizeLimit,"UTF-8",new DefaultFileRenamePolicy());
 		
-		//�뿴嫄곗옄�뿉 ���옣�맂 �뙆�씪�쓣 �떞�� 媛앹껜瑜� �깮�꽦�븳�떎
+
 		Enumeration files = multi.getFileNames();
-		//�뿴嫄곗옄�뿉 �떞�� �뙆�씪�쓽 �떎�쓬 媛믪쓣 爰쇰궦�떎
+
 		String file = (String) files.nextElement();
-		//���옣�릺�뒗 �뙆�씪�씠由�
+
 		String p_img = multi.getFilesystemName(file);
-		//�썝�옒 �뙆�씪�씠由�
+
 		String originFileName = multi.getOriginalFileName(file);	
 					
 		String p_code = multi.getParameter("p_code");

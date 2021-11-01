@@ -6,6 +6,6 @@
 	<typeAlias alias="bv" type="com.ezen.myapp.domain.BoardVo"/>
   	<typeAlias alias="scri" type="com.ezen.myapp.domain.SearchCriteria"/>
   	<typeAlias alias="mv" type="com.ezen.myapp.domain.MemberVo"/>
-  		<typeAlias alias="pv" type="com.ezen.myapp.domain.ProductVo"/>
+  	<typeAlias alias="pv" type="com.ezen.myapp.domain.ProductVo"/>
   </typeAliases> 
  </configuration>
