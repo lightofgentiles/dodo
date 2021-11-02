@@ -3,19 +3,19 @@
 
 		<div class="info_section">
 			<ul class="info_list">
-				<li><a href="${path}/main/main.do"><img src="${path}/images/s_images/info_icon_01.png" alt="HOME"></a></li>
+				<li><a href="${path}/main/main.do"><img src="${path}/images/s_images/info_icon_01.png" title="HOME"></a></li>
 				<c:if test="${sessionScope.memberId != null}">	
-	         			<li><a href="${path}/member/memberLoginout.do"><img src="${path}/images/s_images/info_icon_02_1.png" alt="로그아웃"></a></li>
-	         			<li><a href="${path}/member/memberJoin.do"><img src="${path}/images/s_images/info_icon_03.png" alt="회원가입"></a></li>
-	         			<li><a href="${path}/board/boardList.do"><img src="${path}/images/s_images/info_icon_04.png?ver=1" alt="고객문의"></a></li>
+	         			<li><a href="${path}/member/memberLoginout.do"><img src="${path}/images/s_images/info_icon_02_1.png" title="로그아웃"></a></li>
+	         			<li><a href="${path}/member/memberJoin.do"><img src="${path}/images/s_images/info_icon_03.png" title="회원가입"></a></li>
+	         			<li><a href="${path}/board/boardList.do"><img src="${path}/images/s_images/info_icon_04.png?ver=1" title="고객문의"></a></li>
 	         		<c:if test="${sessionScope.member_level eq 'admin'}" >	
-	         			<li><a href="${path}/admin/main.do"><img src="${path}/images/s_images/admin.png?ver=1" alt="관리자"></a></li>
+	         			<li><a href="${path}/admin/main.do"><img src="${path}/images/s_images/admin.png?ver=1" title="관리자"></a></li>
          			</c:if>
       			</c:if>      
       			<c:if test="${sessionScope.memberId == null}">
-     	 			<li><a href="${path}/member/memberLogin.do"><img src="${path}/images/s_images/info_icon_02.png" alt="로그인"></a></li>
-					<li><a href="${path}/member/memberJoin.do"><img src="${path}/images/s_images/info_icon_03.png" alt="회원가입"></a></li>
-					<li><a href="${path}/board/boardList.do"><img src="${path}/images/s_images/info_icon_04.png?ver=1" alt="고객문의"></a></li>			
+     	 			<li><a href="${path}/member/memberLogin.do"><img src="${path}/images/s_images/info_icon_02.png" title="로그인"></a></li>
+					<li><a href="${path}/member/memberJoin.do"><img src="${path}/images/s_images/info_icon_03.png" title="회원가입"></a></li>
+					<li><a href="${path}/board/boardList.do"><img src="${path}/images/s_images/info_icon_04.png?ver=1" title="고객문의"></a></li>			
       			</c:if>
 
 			</ul>

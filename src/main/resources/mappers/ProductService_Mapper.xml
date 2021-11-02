@@ -43,6 +43,10 @@ order by p_idx desc limit #{f_str},#{e_str}
 select count(*) as cnt from product where p_category='pants' and del_yn='N'
 </select>
 
+<select id="productSelectOne" parameterType="Integer" resultType="pv">
+select * from product where del_yn='N' and p_idx = #{p_idx}
+</select>
+
 
 
 

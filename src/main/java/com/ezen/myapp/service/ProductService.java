@@ -23,6 +23,8 @@ public interface ProductService {
 
 	ArrayList<ProductVo> productPantsSelectAll(SearchCriteria scri);
 
+	ProductVo productSelectOne(int p_idx);
+
 
 	
 

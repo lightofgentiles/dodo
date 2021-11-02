@@ -10,9 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
+import com.ezen.myapp.domain.BoardVo;
 import com.ezen.myapp.domain.ProductVo;
 import com.ezen.myapp.domain.SearchCriteria;
+import com.ezen.myapp.persistence.BoardService_Mapper;
 import com.ezen.myapp.persistence.ProductService_Mapper;
 
 @Service("ProductServiceImpl")
@@ -99,6 +100,14 @@ public class ProductServiceImpl implements ProductService {
 		ProductService_Mapper psm =sqlSession.getMapper(ProductService_Mapper.class);	
 		ArrayList<ProductVo> alist = psm.productPantsSelectAll(hm);
 		return alist;
+	}
+
+	@Override
+	public ProductVo productSelectOne(int p_idx) {
+		ProductService_Mapper psm =sqlSession.getMapper(ProductService_Mapper.class);		
+		ProductVo pv = psm.productSelectOne(p_idx);
+		
+		return pv;
 	}
 	
 	

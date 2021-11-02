@@ -114,6 +114,19 @@ public class ProductController {
 		return "product/pants";
 		
 	}
+	
+	@RequestMapping(value="/product/goodsdetail.do")
+	public String goodsdetail(
+			@RequestParam("p_idx") int p_idx,
+			Model  model
+			) {	
+		
+		ProductVo pv = ps.productSelectOne(p_idx);
+		model.addAttribute("pv", pv);		
+
+		return "product/goodsdetail";
+		
+	}
 
 	
 	

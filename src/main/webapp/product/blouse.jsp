@@ -19,7 +19,6 @@
     <link rel="stylesheet" type="text/css" href="${path}/css/product.css" />
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
     <script src="${path}/js/header.js" defer> </script>
-    <script src="${path}/js/auto_slide.js" defer> </script>
     <script src="${path}/js/jquery.min.js" defer></script>
 	<script src="${path}/js/flat.min.js" defer></script>
     <script type="text/javascript">
@@ -53,7 +52,7 @@
 					      	<tr> 
 					      	</c:if> 
 					      		<td>
-							      <img src="${path}/images/p_images/<%=pv.getP_img()%>">
+					      		  <a href="${path}/product/goodsdetail.do?p_idx=<%=pv.getP_idx()%>"><img src="${path}/images/p_images/<%=pv.getP_img()%>"></a>
 					              <p><%=pv.getP_name()%></p>
 					              <p><%=pv.getP_price()%></p>
 			              		</td>

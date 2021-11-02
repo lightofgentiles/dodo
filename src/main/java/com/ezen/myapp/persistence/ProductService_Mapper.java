@@ -25,6 +25,8 @@ public interface ProductService_Mapper {
 	int productPantsTotalCount(SearchCriteria scri);
 
 	ArrayList<ProductVo> productPantsSelectAll(HashMap<String, Object> hm);
+
+	ProductVo productSelectOne(int p_idx);
 	
 
 	
