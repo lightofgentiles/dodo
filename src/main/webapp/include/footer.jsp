@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
       <footer class="footer">
         <div class="footer_info"> 
           <h3>(주)Fashion Mail</h3><br>
